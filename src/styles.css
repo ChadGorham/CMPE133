@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* make the text not be covered by the top bar */
+body { padding-top : 70px;}
