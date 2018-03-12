@@ -1,12 +1,14 @@
 <!-- use bootstrap form -->
+<!-- apply ng model directive on each of these input fields
+thus, can create a form control object -->
 <form>
-  <!-- first input field -->
   <div class="form-group">
     <!-- for improving the accessibility, use both "title" when user click the label
       the input field field will immediately get focus -->
     <label for="title">Title</label>
-    <input id="title" type="text" class="form-control">
+    <input ngModel name="title" id="title" type="text" class="form-control">
   </div>
+
   <div class="form-group">
       <label for="price">Price</label>
       <!-- div.input-group>span.input-group-text //then press enter -->
@@ -14,48 +16,58 @@
           <div class="input-group-prepend">
             <span class="input-group-text">$</span>
           </div>
-          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <input ngModel name="price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
       </div>
   </div>
   <div class="form-group">
-      <label for="unit">Unit</label>
-      <input id="unit" type="text" class="form-control">
-  </div>
-  <div class="form-group">
-      <label for="condition">Condition</label>
-      <select id="condition"  class="form-control">
-          <option value=""></option>
-      </select>
-  </div>
-  <div class="form-group">
-      <label for="isonsale">isOnsale</label>
-      <select id="isonsale"  class="form-control">
-          <option value=""></option>
-      </select>
-  </div>
-  <div class="form-group">
-      <label for="discount">Discount</label>
-      <select id="discount"  class="form-control">
-          <option value=""></option>
-      </select>
-  </div>
-  <div class="form-group">
-      <label for="description">Description</label>
-      <input id="description" type="text" class="form-control">
-  </div>
-  <div class="form-group">
-      <label for="imageUrl">Image Url</label>
-      <input id="imageUrl" type="text" class="form-control">
-  </div>
-  <div class="form-group">
       <label for="category">Category</label>
-      <select id="category"  class="form-control">
+      <select ngModel name="category" id="category"  class="form-control">
         <option value=""></option>
         <!-- the $key is bread, but not Bread, in database under categories -->
         <option *ngFor="let c of categories$ | async" [value]="c.$key">
             {{ c.name }}
         </option>
       </select>
+  </div>
+  <div class="form-group">
+      <label for="unit">Unit</label>
+      <select ngModel name="unit" id="unit"  class="form-control">
+        <option value=""></option>
+        <!-- the $key is bread, but not Bread, in database under categories -->
+        <option *ngFor="let c of units$ | async" [value]="c.$key">
+            {{ c.name }}
+        </option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="condition">Condition</label>
+      <select ngModel name="condition" id="condition"  class="form-control">
+          <option value="">good</option>
+          <option value="">bad</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="isonsale">Is Onsale</label>
+      <select ngModel name="isOnsale" id="isOnsale"  class="form-control">
+          <option value="">yes</option>
+          <option value="">no</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="discount">Discount</label>
+      <select ngModel name="discount" id="discount"  class="form-control">
+          <option value="">0.9</option>
+          <option value="">0.7</option>
+          <option value="">0.5</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="description">Description</label>
+      <input ngModel name="description" id="description" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+      <label for="imageUrl">Image Url</label>
+      <input ngModel name="imageUrl" id="imageUrl" type="text" class="form-control">
   </div>
   <button class="btn btn-primary">Save</button>
 </form>
