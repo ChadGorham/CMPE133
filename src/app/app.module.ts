@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
 import { UnitService } from './unit.service';
+import { ProductService } from './product.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { UnitService } from './unit.service';
     AdminAuthGuard,
     UserService,
     CategoryService,
-    UnitService
+    UnitService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
