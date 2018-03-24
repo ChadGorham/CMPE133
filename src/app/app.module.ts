@@ -28,6 +28,10 @@ import { CategoryService } from './category.service';
 import { UnitService } from './unit.service';
 import { ProductService } from './product.service';
 
+//angular material for data table
+import { MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule } from '@angular/material'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +48,14 @@ import { ProductService } from './product.service';
     ProductFormComponent
   ],
   imports: [
+    //for data table in admin product page
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
