@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../category.service';
-import { UnitService } from '../../unit.service';
-import { ProductService } from '../../product.service';
+import { CategoryService } from '../../shared/services/category.service';
+import { UnitService } from '../../shared/services/unit.service';
+import { ProductService } from '../../shared/services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take'; //only take one item from observable and complete it.
 
@@ -21,7 +21,7 @@ export class ProductFormComponent implements OnInit {
               private router: Router,
               private unitService: UnitService,
               private productService: ProductService ) {
-    this.categories$ = categoryService.getCategories();
+    this.categories$ = categoryService.getAll();
     this.units$ = unitService.getUnits();
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {

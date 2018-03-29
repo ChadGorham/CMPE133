@@ -9,4 +9,5 @@ export interface Product{
     isOnsale: string;
     unit: string;
     condition: string;
+    $key: string;
 }

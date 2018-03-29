@@ -1,7 +1,7 @@
 import { AdminAuthGuard } from './admin-auth-guard.service';
-import { UserService } from './user.service';
-import { AuthGuard } from './auth-guard.service';
-import { AuthService } from './auth.service';
+import { UserService } from './shared/services/user.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { AuthService } from './shared/services/auth.service';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,13 +24,22 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { CategoryService } from './category.service';
-import { UnitService } from './unit.service';
-import { ProductService } from './product.service';
+import { CategoryService } from './shared/services/category.service';
+import { UnitService } from './shared/services/unit.service';
+import { ProductService } from './shared/services/product.service';
 
 //angular material for data table
 import { MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule } from '@angular/material'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './shared/services/shopping-cart.service';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { OrderService } from './shared/services/order.service';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -45,9 +54,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent,
+    OrderDetailsComponent
   ],
   imports: [
+    SharedModule,
     //for data table in admin product page
     MatTableModule,
     MatPaginatorModule,
@@ -55,7 +69,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatSortModule,
     BrowserAnimationsModule,
-
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -63,14 +76,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
-      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
+      //pass the order id to this page
+      { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
+      { 
+        path: 'my/orders/:id', 
+        component: OrderDetailsComponent, 
+        //check user login, then check admin login
+        canActivate: [AuthGuard] 
+      },
       { 
         path: 'admin/products/new', 
         component: ProductFormComponent, 
@@ -80,6 +100,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { 
         path: 'admin/products/:id', 
         component: ProductFormComponent, 
+        //check user login, then check admin login
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      { 
+        path: 'admin/orders/:id', 
+        component: OrderDetailsComponent, 
         //check user login, then check admin login
         canActivate: [AuthGuard, AdminAuthGuard] 
       },
@@ -104,7 +130,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserService,
     CategoryService,
     UnitService,
-    ProductService
+    ProductService,
+    ShoppingCartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

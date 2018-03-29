@@ -1,8 +1,0 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
-
-/* for data table in admin product page */
-@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
-
-/* make the text not be covered by the top bar */
-body { padding-top : 70px;}

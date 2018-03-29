@@ -7,7 +7,7 @@ export class CategoryService {
   //inject the firedatabase object
   constructor(private db: AngularFireDatabase) { }
 
-  getCategories(){
+  getAll(){
     //use the second argument to tell how to sort this categories
     return this.db.list('/categories', {
       query: {

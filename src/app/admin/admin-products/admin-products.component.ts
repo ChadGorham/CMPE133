@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
-import { ProductService } from '../../product.service';
+import { ProductService } from '../../shared/services/product.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Product } from '../../models/product';
+import { Product } from '../../shared/models/product';
 
 //for data table in admin product page
 import {MatPaginator, MatTableDataSource, MatSort} from '@angular/material';
