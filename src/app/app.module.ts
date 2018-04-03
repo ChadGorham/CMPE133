@@ -1,111 +1,121 @@
-import { AdminAuthGuard } from './admin-auth-guard.service';
-import { UserService } from './shared/services/user.service';
-import { AuthGuard } from './shared/services/auth-guard.service';
-import { AuthService } from './shared/services/auth.service';
-import { environment } from './../environments/environment';
-import { BrowserModule } from '@angular/platform-browser';
+import { ShoppingModule } from './shopping/shopping.module';
+import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2'; 
-import { AngularFireDatabaseModule } from 'angularfire2/database'; 
-import { AngularFireAuthModule } from 'angularfire2/auth'; 
-import { RouterModule } from '@angular/router'; 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { CustomFormsModule } from 'ng2-validation';
+import { StarRatingModule } from 'angular-star-rating';
 
+
+import { environment } from './../environments/environment';
+import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin-products.component';
+import { ProductFormComponent } from './admin/components/product-form/product-form.component';
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
+import { CheckOutComponent } from './shopping/components/check-out/check-out.component';
 import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { CheckOutComponent } from './check-out/check-out.component';
-import { OrderSuccessComponent } from './order-success/order-success.component';
-import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { CategoryService } from './shared/services/category.service';
-import { UnitService } from './shared/services/unit.service';
-import { ProductService } from './shared/services/product.service';
+import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
+import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
+import { ProductFilterComponent } from './shopping/components/products/product-filter/product-filter.component';
+import { ProductsComponent } from './shopping/components/products/products.component';
+import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { ShippingFormComponent } from './shopping/components/shipping-form/shipping-form.component';
+import { ShoppingCartSummaryComponent } from './shopping/components/shopping-cart-summary/shopping-cart-summary.component';
+import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
+import { SignupComponent } from './signup/signup.component';
+import { WebLoginComponent } from './web-login/web-login.component';
 
-//angular material for data table
-import { MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule } from '@angular/material'; 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-import { ProductCardComponent } from './product-card/product-card.component';
-import { ShoppingCartService } from './shared/services/shopping-cart.service';
-import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
-import { OrderService } from './shared/services/order.service';
-import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
-import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+
+import { MakePaymentComponent } from './payments/make-payment/make-payment.component';
+import { PaymentService } from './payments/payment.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
-import { SharedModule } from './shared/shared.module';
+import { UnitService } from './unit.service';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BsNavbarComponent,
-    HomeComponent,
-    ProductsComponent,
-    ShoppingCartComponent,
-    CheckOutComponent,
-    OrderSuccessComponent,
-    MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
+    HomeComponent,  
     LoginComponent,
-    ProductFormComponent,
-    ProductFilterComponent,
-    ShoppingCartSummaryComponent,
-    ShippingFormComponent,
+    ProfileComponent,
+    ProfileUpdateComponent,
+    SignupComponent,
+    WebLoginComponent,
+    MakePaymentComponent,
     OrderDetailsComponent
   ],
   imports: [
+    BrowserModule,
     SharedModule,
-    //for data table in admin product page
+    AdminModule,
+    ShoppingModule,
+    FormsModule,
+    CustomFormsModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
     MatSortModule,
     BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    StarRatingModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'web-login', component: WebLoginComponent },
+      { path: 'signup', component: SignupComponent },
 
-      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
-      //pass the order id to this page
-      { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
-      { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'profile-update', component: ProfileUpdateComponent, canActivate: [AuthGuard] },
+
+      { path: 'payment', component: MakePaymentComponent},
+      
+      // Detail of my order
       { 
         path: 'my/orders/:id', 
         component: OrderDetailsComponent, 
         //check user login, then check admin login
         canActivate: [AuthGuard] 
       },
+
+      { 
+        path: 'admin/orders/:id', 
+        component: OrderDetailsComponent, 
+        //check user login, then check admin login
+        canActivate: [AuthGuard, AdminAuthGuard]
+      },
+
+      // Specific route should be on top
+      // and general route should be at the bottom
       { 
         path: 'admin/products/new', 
         component: ProductFormComponent, 
         //check user login, then check admin login
         canActivate: [AuthGuard, AdminAuthGuard] 
       },
-      { 
+      {
+        // Look for parater for id to edit a product 
         path: 'admin/products/:id', 
         component: ProductFormComponent, 
-        //check user login, then check admin login
-        canActivate: [AuthGuard, AdminAuthGuard] 
-      },
-      { 
-        path: 'admin/orders/:id', 
-        component: OrderDetailsComponent, 
         //check user login, then check admin login
         canActivate: [AuthGuard, AdminAuthGuard] 
       },
@@ -124,15 +134,8 @@ import { SharedModule } from './shared/shared.module';
     ])    
   ],
   providers: [
-    AuthService,
-    AuthGuard,
-    AdminAuthGuard,
-    UserService,
-    CategoryService,
-    UnitService,
-    ProductService,
-    ShoppingCartService,
-    OrderService
+    PaymentService,
+    UnitService
   ],
   bootstrap: [AppComponent]
 })

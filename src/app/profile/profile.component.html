@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h1 style="text-align:center; font-size: 36px;">User Profile</h1>
+<div class="card">
+    <!-- The profile picture will the default image if the image url is invalid provided by users -->
+    <img name="profile_picture" class="thumbnail" src="{{appUser.profile_picture}}" onerror="this.src='https://image.flaticon.com/icons/svg/16/16480.svg'" />   
+    <h3>{{appUser.name}}</h3>
+    <br>
+    <i class="fa fa-envelope" style="font-size: 20px;">  {{appUser.email}}</i>
+    <br>
+    <i class="fa fa-home" style="font-size: 20px;">  {{appUser.address}}</i>
+    
+    <p><a class="btn btn-primary" style="margin: 15px; font-size: 20px" routerLink='/profile-update'>Update</a></p>
+</div>
+
+</body>
+</html>

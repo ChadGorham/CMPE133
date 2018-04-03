@@ -1,0 +1,5 @@
+/* too make sure the top of the catelog not being scrolled up */
+.sticky-top
+{
+    top: 80px;
+}

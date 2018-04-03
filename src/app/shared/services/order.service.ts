@@ -16,7 +16,7 @@ export class OrderService {
   getOrders() { 
     return this.db.list('/orders');
   }
-  
+
   getOrder(orderId){
     return this.db.object('/orders/' + orderId);
   }
@@ -24,9 +24,8 @@ export class OrderService {
   getOrdersByUser(userId: string) {
     return this.db.list('/orders', {
       query: {
-        //when filtering data from database always use below 2 lines
         orderByChild: 'userId',
-        equalTo: userId    //or startAt, endAt    
+        equalTo: userId        
       }
     });
   }

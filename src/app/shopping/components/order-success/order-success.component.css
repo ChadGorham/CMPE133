@@ -1,0 +1,25 @@
+div
+{
+    padding: 8px;
+    background-color: #32CD32;
+}
+
+.thankYou-msg
+{
+    border: 1px solid gray;
+}
+
+h3 
+{
+    background-color: #32CD32;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+p
+{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}

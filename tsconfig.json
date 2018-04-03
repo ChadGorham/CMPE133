@@ -15,15 +15,11 @@
       "es2017",
       "dom"
     ],
-    //referenc to the root of the project
     "baseUrl": "./src",
-    //define a alias paths
     "paths": {
-      //tell the complier if the started with shared, then replace with array
-      "shared/*": [
+      "shared/*":[
         "app/shared/*"
       ]
     }
   }
 }
-

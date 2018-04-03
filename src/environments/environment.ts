@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  stripeKey: 'pk_test_Nwb6yAxqmMl5lqf2Oag5tYpe',
   firebase: {
     apiKey: "AIzaSyDeK6DT0wHNdFsv8Amoj6R-ncnKbLGjNjA",
     authDomain: "minisafeway-86425.firebaseapp.com",

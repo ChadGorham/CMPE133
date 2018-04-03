@@ -9,8 +9,9 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
-      ],
+        "favicon.ico",
+        "../node_modules/font-awesome/fonts"
+      ],   
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -19,7 +20,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

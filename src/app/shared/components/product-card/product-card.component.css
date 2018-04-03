@@ -1,0 +1,28 @@
+.card-footer
+{
+    padding: 0;
+}
+
+.card-footer button
+{   
+    cursor: pointer;
+}
+
+.card-img-top
+{
+    height: 40%;
+}
+
+.checked {
+    color: orange;
+}
+
+.sale-tag
+{
+    background: #FA8072;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}

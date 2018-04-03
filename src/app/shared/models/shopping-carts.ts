@@ -1,0 +1,48 @@
+import { ShoppingCartItem } from "./shopping-cart-item";
+import { Product } from "./product";
+
+export class ShoppingCart{
+
+  items: ShoppingCartItem[] = [];
+  
+  constructor(private itemsMap: { [productId: string]: ShoppingCartItem }) 
+  {
+    // Make sure the imtesMap is initialized properly
+    // instead of null
+    this.itemsMap = itemsMap || {};
+
+    // Create shopping cart items with variable in "items" variable
+    for(let productId in itemsMap) {
+      let item = itemsMap[productId];
+
+      this.items.push(new ShoppingCartItem({...item, $key: productId}));   
+    }
+  }
+
+  // Asking the shopping cart what is the quantitty of this product
+  getQuantity(product: Product)
+  {
+    let item = this.itemsMap[product.$key];
+    // if there is an item in quantity, return quantity amount
+    // else return 0
+    return item ? item.quantity : 0;
+  }
+
+  get totalPrice()
+  {
+    let sum = 0;
+    for(let productId in this.items)
+      sum +=this.items[productId].totalPrice;
+    return sum;
+
+  }
+
+  // calculate the total number of items in shopping cart
+  get totalItemsCount()
+  {
+    let count = 0;
+    for(let productId in this.itemsMap)
+      count += this.itemsMap[productId].quantity;
+    return count;
+  }
+}

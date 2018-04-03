@@ -1,0 +1,19 @@
+<!-- to make sure the button row is not bigger than the card -->
+<div class="row no-gutters">
+  <div class="col-2">
+    <button 
+      (click)="removeFromCart()"
+      class="btn btn-secondary btnblock">-</button>
+  </div>
+
+  <div class="col text-center">
+    {{ shoppingCart.getQuantity(product) }} in cart
+  </div>
+
+  <div class="col-2">
+    <button 
+      (click)="addToCart(product)"
+      class="btn btn-secondary btnblock">+</button>
+  </div>
+
+</div>

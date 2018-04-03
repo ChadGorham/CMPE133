@@ -11,18 +11,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor(private userService: UserService, private auth: AuthService, router: Router) {
     auth.user$.subscribe(user => {
-      if (!user)
-        return;
+      if(!user) return;
+        userService.save(user);
 
-      userService.save(user);
-
-      let returnUrl = localStorage.getItem('returnUrl');
-
-      if(!returnUrl)
-        return;
-
-      localStorage.removeItem('returnUrl');
-      router.navigateByUrl(returnUrl);
+        let returnUrl = localStorage.getItem('returnUrl');
+        // Make sure the user won't go back to the home page
+        // if they refresh the page
+        // only go back to home page first time
+        if(!returnUrl) return;
+          localStorage.removeItem('returnUrl');
+          router.navigateByUrl(returnUrl);
     });
   }
 }

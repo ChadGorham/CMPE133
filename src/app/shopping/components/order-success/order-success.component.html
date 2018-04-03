@@ -1,0 +1,18 @@
+<div class="thankYou-msg">
+  <h3 class="title">
+    Thank You for Shopping With E-Quality!
+  </h3>
+
+  <!-- Only shows the last element of array of "my orders" -->
+  <!-- because that should be the most recent purchase -->
+  <div class="order-info" *ngFor="let order of orders$ | async; let last = last">
+    <p *ngIf="last">Following is Your Order ID
+      <br>
+      {{ order.$key }}
+      <br>
+      <br>
+      Have a Wonderful Day!
+    </p>
+  </div>
+
+</div>

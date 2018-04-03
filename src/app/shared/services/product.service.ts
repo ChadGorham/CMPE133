@@ -1,30 +1,42 @@
-import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ProductService {
 
   constructor(private db:AngularFireDatabase) { }
 
-  create(product){
-    //return something, so we can do something after
+  create(product)
+  {
+    // Create the product and save it in Firebase
     return this.db.list('/products').push(product);
   }
 
-  getAll(){
-    return this.db.list('/products');
+  // get all products listed in firebase
+  getAll()
+  {
+    return this.db.list('products');
   }
 
-  getProduct(productId){
+  // retrieve product with given id
+  get(productId)
+  {
     return this.db.object('/products/' + productId);
   }
 
-  updateProduct(productId, product){
-    //cannot use product.id, this causes runtime error
+  // need two parameter for id and product
+  // because we cannot get product id from product
+  update(productId, product)
+  {
+    // when you passed parameter in update()
+    // firebase won't let you do it because
+    // id should not be changed or updated
     return this.db.object('/products/' + productId).update(product);
   }
 
-  delete(productId){
+  delete(productId)
+  {
     return this.db.object('/products/' + productId).remove();
   }
+
 }

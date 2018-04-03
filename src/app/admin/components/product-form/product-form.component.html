@@ -1,0 +1,157 @@
+
+<!-- The column that takes half of the page -->
+<!-- Boostrap devided the screen in 12 columns -->
+<!-- 6 columns will be considered half -->
+<div class="row">
+    <!-- left partition -->
+    <div class="col-md-6">
+        <!-- use bootstrap form -->
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+            <!-- first input field -->
+            <div class="form-group">
+            <!-- for improving the accessibility, use both "title" when user click the label
+                the input field field will immediately get focus -->
+                <label for="title">Title</label>
+                <input #title="ngModel" [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control" required>
+                <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                    Title is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <!-- div.input-group>span.input-group-text //then press enter -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                </div>
+                    <input #price="ngModel" [(ngModel)]="product.price" name="price" type="number" class="form-control" aria-label="Amount (to the nearest dollar)" required>
+                </div>
+                <div class="alert alert-danger" *ngIf="price.touched && !price.value || price.value < 0">
+                    <div *ngIf="!price.value">Price is required</div>
+                    <div *ngIf="price.value < 0">Price should be 0 or higher</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="unit">Unit</label>
+                <select #unit="ngModel" [(ngModel)]="product.unit" name="unit" id="unit"  class="form-control">
+                    <option value="ea"></option>
+                    <!-- the $key is bread, but not Bread, in database under categories -->
+                    <option *ngFor="let c of units$ | async" [value]="c.$key">
+                        {{ c.name }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="condition">Condition</label>
+                <select #condition="ngModel" [(ngModel)]="product.condition" name="condition" id="condition"  class="form-control" required>
+                    <option value=""></option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Bad">Bad</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
+                    Condition is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="isonsale">isOnsale</label>
+                <select #isonsale="ngModel" [(ngModel)]="product.isonsale" name="isonsale" id="isonsale"  class="form-control" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="isonsale.touched && isonsale.invalid">
+                    isOnsale is required
+                </div>
+            </div>
+        
+            <div *ngIf="isonsale.value === 'Yes'" class="form-group">
+                <label for="discount">Discount</label>
+                <select #discount="ngModel" [(ngModel)]="product.discount" name="discount" id="discount"  class="form-control" required>
+                    <option value="15">15%</option>
+                    <option value="25">25%</option>
+                    <option value="50">50%</option>
+                    <option value="75">75%</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="discount.touched && discount.invalid">
+                    Discount is required
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input ngModel name="description" [(ngModel)]="product.description" name="description" id="description" type="text" class="form-control">
+            </div>
+        
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
+                <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+                    <div *ngIf="imageUrl.errors.required">Image URL is requried</div>
+                    <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
+                    <option value=""></option>
+                    <!-- the $key is bread, but not Bread, in database under categories -->
+                    <option *ngFor="let c of categories$ | async" [value]="c.$key">
+                        {{ c.name }}
+                    </option>
+                </select>
+                <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+                    Category is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <!-- div.input-group>span.input-group-text //then press enter -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-star"></i></span>
+                </div>
+                    <input #rating="ngModel" [(ngModel)]="product.rating" name="rating" type="number" class="form-control" required min="0" max="5">
+                </div>
+                <div class="alert alert-danger" *ngIf="rating.touched && !rating.value || rating.value < 0  || rating.value > 5">
+                    <div *ngIf="!rating.value">Rating is required</div>
+                    <div *ngIf="rating.value < 0">Rating should be at least 0</div>
+                    <div *ngIf="rating.value > 5">Rating should be less than 5</div>
+                </div>
+            </div>
+
+            <div *ngIf="isonsale.value === 'Yes'" class="form-group">
+                <label for="salePrice">Sale Price</label>
+                <input ngModel name="salePrice" [(ngModel)]="product.salePrice" name="salePrice" id="salePrice" type="number" class="form-control">
+                <p>
+                    (Needed Manual input {{ product.price * ( 100 - product.discount) / 100  | currency:'USD': true }})
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="review">Review</label>
+                <input ngModel name="review" [(ngModel)]="product.review" name="review" id="review" type="text" class="form-control" value="Welcome to Review">
+            </div>
+    
+
+            <button 
+                [disabled]="!f.valid"
+                type="submit"
+                class="btn btn-primary">Save</button>
+
+            <!-- default type is submite, need to change to button so it won't submit -->
+            <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+
+    <!-- right partition -->
+    <div class="col-md-6">
+        <!-- hide the add to cart button -->
+        <product-card [product]="product" [show-actions]="false"></product-card>
+    </div>
+</div>

@@ -1,25 +1,23 @@
-import { ShoppingCart } from './shopping-cart';
+import { ShoppingCart } from "./shopping-carts";
 
-export class Order { 
-  datePlaced: number; 
-  items: any[];
-  totalAmount;
+export class Order{
+    datePlaced: number;
+    items: any[];
 
-  constructor(public userId: string, public shipping: any, shoppingCart: ShoppingCart) {
-    this.datePlaced = new Date().getTime();
+    constructor(public userId: string, public shipping: any, shoppingCart: ShoppingCart)
+    {
+        this.datePlaced = new Date().getTime();
 
-    this.totalAmount = shoppingCart.totalAmount;
-    
-    this.items = shoppingCart.items.map(i => {
-      return {
-        product: {
-          title: i.title,
-          imageUrl: i.imageUrl,
-          price: i.price
-        },
-        quantity: i.quantity,
-        totalPrice: i.totalPrice
-      }
-    })    
-  }
-}
+        this.items = shoppingCart.items.map(i =>{
+            return {
+                product: {
+                title: i.title,
+                imageUrl: i.imageUrl,
+                price: i.price
+                },
+                quantity: i.quantity,
+                totalPrice: i.totalPrice
+            }
+            })
+        }
+    }

@@ -12,8 +12,9 @@ export class UserService {
     // '/users/' location of an object in the database
     this.db.object('/users/' + user.uid).update({
       name: user.displayName,
-      email: user.email
+      email: user.email,   
     });
+    
   }
 
   get(uid: string): FirebaseObjectObservable<AppUser> { 

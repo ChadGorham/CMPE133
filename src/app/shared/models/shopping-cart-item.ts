@@ -1,18 +1,21 @@
 import { Product } from "./product";
 
 export class ShoppingCartItem{
-    $key: string;
+    $key: string
     title: string;
-    unit: string;
     imageUrl: string;
     price: number;
     quantity: number;
-    
-    constructor(init?: Partial<ShoppingCartItem>){
+   
+    // Make init optional
+    // init will have an object that is like shoppingcart item
+    constructor(init?: Partial<ShoppingCartItem>)
+    {
         Object.assign(this, init);
     }
 
-    get totalPrice(){
+    get totalPrice()
+    {
         return this.price * this.quantity;
     }
 }

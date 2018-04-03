@@ -1,13 +1,16 @@
-//help documenting our code, and complying time checking.
-export interface Product{
+export interface Product {
+    key: string,
     title: string;
     price: number;
-    category: string;
-    description: string;
-    discount: number;
-    imageUrl: string;
-    isOnsale: string;
     unit: string;
     condition: string;
-    $key: string;
+    isOnsale: boolean;
+    Discount: string;
+    salePrice: number;
+    Description: string;
+    imageUrl: string;
+    category: string;
+    rating: number;
+    review: string;
+    $key: string; 
 }
