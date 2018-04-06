@@ -2,3 +2,10 @@
 .dropdown-toggle, .dropdown-item { 
   cursor: pointer;
 }
+
+/* Get rid of the blue square when click the image of home button */
+img:active, img:focus {
+  outline: 0;
+  border: none;
+  outline-style: none
+}

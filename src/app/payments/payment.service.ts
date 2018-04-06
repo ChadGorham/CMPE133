@@ -43,22 +43,25 @@ export class PaymentService implements OnInit, OnDestroy{
     this.userSubscription.unsubscribe();
   }
 
-  async placeOrder() 
-  {
-    // Getting total amount of price in shipping cart
-    this.cart$ = await this.shoppingCartService.getCart();
-    this.cart$.subscribe(cart => this.cart = cart);
+  // async placeOrder() 
+  // {
+  //   // Getting total amount of price in shipping cart
+  //   this.cart$ = await this.shoppingCartService.getCart();
+  //   this.cart$.subscribe(cart => this.cart = cart);
 
-    let order = new Order(this.userId, this.shipping, this.cart);
+  //   let order = new Order(this.userId, this.shipping, this.cart);
     
-    let result = await this.orderService.placeOrder(order);
+  //   console.log(order);
 
-    // allows user to be redirected to order-success page
-    this.router.navigate(['/order-success', result.key]);
-  }
+    
+
+  //   let result = await this.orderService.placeOrder(order);
+
+  //   // allows user to be redirected to order-success page
+  //   this.router.navigate(['/order-success', result.key]);
+  // }
 
    processPayment(token: any, amount: number) {
-     this.placeOrder();
      const payment = { token, amount }
      return this.db.list(`/payments/${this.userId}`).push(payment)
    }

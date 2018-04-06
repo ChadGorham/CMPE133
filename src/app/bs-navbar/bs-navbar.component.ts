@@ -33,7 +33,6 @@ export class BsNavbarComponent implements OnInit {
     //afAuth.authState.subscribe( user=> this.user = user);
     //this.user$ = auth.authState;
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
-    console.log(this.appUser);
     
     // calculate the total number of items in shopping cart
     this.cart$ = await this.shoppingCartService.getCart();

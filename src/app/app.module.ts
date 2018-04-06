@@ -1,3 +1,4 @@
+import { MakePaymentComponent } from './payments/make-payment/make-payment.component';
 import { ShoppingModule } from './shopping/shopping.module';
 import { AdminModule } from './admin/admin.module';
 import { SharedModule } from './shared/shared.module';
@@ -39,7 +40,6 @@ import { SignupComponent } from './signup/signup.component';
 import { WebLoginComponent } from './web-login/web-login.component';
 
 
-import { MakePaymentComponent } from './payments/make-payment/make-payment.component';
 import { PaymentService } from './payments/payment.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { UnitService } from './unit.service';

@@ -9,7 +9,7 @@ div
     border: 1px solid gray;
 }
 
-h3 
+h3, h4
 {
     background-color: #32CD32;
     text-align: center;
@@ -17,7 +17,7 @@ h3
     color: white;
 }
 
-p
+td, th
 {
     color: white;
     font-size: 20px;

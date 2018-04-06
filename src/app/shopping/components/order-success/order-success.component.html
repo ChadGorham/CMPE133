@@ -6,13 +6,23 @@
   <!-- Only shows the last element of array of "my orders" -->
   <!-- because that should be the most recent purchase -->
   <div class="order-info" *ngFor="let order of orders$ | async; let last = last">
-    <p *ngIf="last">Following is Your Order ID
-      <br>
-      {{ order.$key }}
-      <br>
-      <br>
-      Have a Wonderful Day!
-    </p>
+    <h4 *ngIf="last" style="text-transform: lowercase;">Below is your order information</h4>
+        <table class="table" *ngIf="last">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Order ID</th>
+            </tr>
+          </thead> 
+          <tbody>
+            <tr>
+              <td>{{ order.shipping.name }}</td>
+              <td>{{ order.datePlaced | date}}</td>
+              <td>{{ order.$key }}</td>
+            </tr>
+          </tbody>
+        </table> 
+        <h3 *ngIf="last" class="title">Have a Wonderful Day!</h3>
   </div>
-
 </div>
