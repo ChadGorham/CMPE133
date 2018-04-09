@@ -13,6 +13,7 @@ import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from 'shared/services/auth-guard.service';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   imports: [
@@ -25,11 +26,20 @@ import { AuthGuard } from 'shared/services/auth-guard.service';
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
       { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-      
+            
+      // add to app.moudule.ts
+      {
+        //displaying a simgle product
+        // Look for parameter for id to edit a product 
+        path: 'product/:id', 
+        component: ProductComponent,
+        canActivate: [AuthGuard]  
+      },
     ])
   ],
   declarations: [
     ProductFilterComponent,
+    ProductComponent,
     ProductsComponent,
     ShoppingCartComponent,
     CheckOutComponent,
