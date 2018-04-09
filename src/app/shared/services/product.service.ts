@@ -1,3 +1,4 @@
+import { Product } from 'shared/models/product';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 
@@ -6,9 +7,14 @@ export class ProductService {
 
   constructor(private db:AngularFireDatabase) { }
 
-  create(product)
+  create(product: Product)
   {
     // Create the product and save it in Firebase
+    // description, review, and rating are optional
+    // 
+    product.description = product.description || "";
+    product.review = product.review || "";
+    product.rating = product.rating || 0;
     return this.db.list('/products').push(product);
   }
 
@@ -16,6 +22,24 @@ export class ProductService {
   getAll()
   {
     return this.db.list('products');
+  }
+
+  // get product in order of the price
+  getAllByPrice() {
+    return this.db.list('products', {
+      query: {
+        orderByChild: 'price'      
+      }
+    });
+  }
+
+  // get product in order of the rating
+  getAllByRating() {
+    return this.db.list('products', {
+      query: {
+        orderByChild: 'rating',
+      }
+    });
   }
 
   // retrieve product with given id

@@ -10,7 +10,13 @@ input[type=text]
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
 }
-  
+
+select
+{
+  width: 23%;
+}
+
+
 input[type=text]:focus 
 {
   width: 100%;
@@ -20,4 +26,5 @@ input[type=text]:focus
 .col
 {
   padding-bottom: 30px;
+  margin-bottom: 30px;
 }

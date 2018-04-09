@@ -7,6 +7,7 @@
     <div class="col-md-6">
         <!-- use bootstrap form -->
         <form #f="ngForm" (ngSubmit)="save(f.value)">
+
             <!-- first input field -->
             <div class="form-group">
             <!-- for improving the accessibility, use both "title" when user click the label
@@ -42,6 +43,9 @@
                         {{ c.name }}
                     </option>
                 </select>
+                <div class="alert alert-danger" *ngIf="unit.touched && !unit.value">
+                    Unit is required
+                </div>
             </div>
 
             <div class="form-group">
@@ -56,15 +60,16 @@
                 <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
                     Condition is required
                 </div>
+            
             </div>
             <div class="form-group">
-                <label for="isonsale">isOnsale</label>
+                <label for="isonsale">is Onsale</label>
                 <select #isonsale="ngModel" [(ngModel)]="product.isonsale" name="isonsale" id="isonsale"  class="form-control" required>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
-                <div class="alert alert-danger" *ngIf="isonsale.touched && isonsale.invalid">
-                    isOnsale is required
+                <div class="alert alert-danger" *ngIf="isonsale.touched && !isonsale.value">
+                    is Onsale is required
                 </div>
             </div>
         
@@ -83,7 +88,8 @@
         
             <div class="form-group">
                 <label for="description">Description</label>
-                <input ngModel name="description" [(ngModel)]="product.description" name="description" id="description" type="text" class="form-control">
+                <input [ngModel]="product.description" name="description"  id="description" type="text" class="form-control" [value]="noDescription">
+                <p>{{product.description}}</p>
             </div>
         
             <div class="form-group">
@@ -91,7 +97,7 @@
                 <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
                 <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
                     <div *ngIf="imageUrl.errors.required">Image URL is requried</div>
-                    <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div>
+                    <!-- <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div> -->
                 </div>
             </div>
         
@@ -118,8 +124,7 @@
                 </div>
                     <input #rating="ngModel" [(ngModel)]="product.rating" name="rating" type="number" class="form-control" required min="0" max="5">
                 </div>
-                <div class="alert alert-danger" *ngIf="rating.touched && !rating.value || rating.value < 0  || rating.value > 5">
-                    <div *ngIf="!rating.value">Rating is required</div>
+                <div class="alert alert-danger" *ngIf="rating.touched && rating.value < 0  || rating.value > 5">
                     <div *ngIf="rating.value < 0">Rating should be at least 0</div>
                     <div *ngIf="rating.value > 5">Rating should be less than 5</div>
                 </div>
@@ -140,7 +145,6 @@
     
 
             <button 
-                [disabled]="!f.valid"
                 type="submit"
                 class="btn btn-primary">Save</button>
 

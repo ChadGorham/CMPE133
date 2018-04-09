@@ -16,7 +16,8 @@ export class ShoppingCartService {
   {
     let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId)
-      .map(x => new ShoppingCart(x.items));
+      .map(x => new ShoppingCart(x.items)
+        );
   }
 
   async addToCart(product: Product)
@@ -79,7 +80,11 @@ export class ShoppingCartService {
         title: product.title,
         imageUrl: product.imageUrl,
         price: product.price,
-        quantity: quantity
+        quantity: quantity,
+
+        // Adding the salePrice attribute to show the sale price
+        // on check-out page
+        salePrice: product.salePrice || 0
       });
     });
   }

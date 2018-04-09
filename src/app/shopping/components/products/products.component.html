@@ -6,7 +6,39 @@
   type="text" class="form-control" placeholder="Search...">
 </p>
 
-<div class="row">
+<div class="form-group">
+  <label for="sortBy">Sorted By</label>
+  <select #sorting="ngModel" ngModel (change)="sortBy(sorting.value)" name="sortBy" id="sortBy"  class="form-control">
+      <option (change)="populateProducts()" value="noFilter">No Sorting</option>
+      <option (change)="sortBy(orderByPriceDesc)" value="orderByPriceDesc">Order By Price (High to Low)</option>
+      <option (change)="sortBy(orderByPriceAsc)" value="orderByPriceAsc">Order By Price (Low to High)</option>
+      <option (change)="sortBy(orderByRating)" value="orderByRating">Order By Rating (High to Low)</option>
+  </select>
+</div>
+
+
+<!-- Button of Sorting -->
+<!-- <button
+  (click)="populateProducts(true)">
+  No Filter
+</button>
+
+<button
+  (click)="populateProductsByPrice(true)">
+  Order By Price (High to Low)
+</button>
+
+<button
+  (click)="populateProductsByPrice(false)">
+  Order By Price (Low to High)
+</button>
+
+<button
+  (click)="populateProductsByRating()">
+  Order By Rating (High to Low)
+</button> -->
+
+<div style="margin-top: 50px;" class="row">
   <!-- Take 3 out of 12 columns of the page -->
   <!-- around 25% of the page for catelog -->
   <div class="col-3">

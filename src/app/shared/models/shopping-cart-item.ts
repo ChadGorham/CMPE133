@@ -5,6 +5,7 @@ export class ShoppingCartItem{
     title: string;
     imageUrl: string;
     price: number;
+    salePrice: number;
     quantity: number;
    
     // Make init optional

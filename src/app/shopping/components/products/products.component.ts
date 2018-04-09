@@ -35,6 +35,20 @@ export class ProductsComponent implements OnInit {
     this.populateProducts();
   }
 
+  // Sorting function 
+  private sortBy(command: string)
+  {
+    
+    if(command == "orderByPriceDesc")
+      this.populateProductsByPrice(true);
+    else if(command == "orderByPriceAsc")
+      this.populateProductsByPrice(false);
+    else if(command == "orderByRating")
+      this.populateProductsByRating();
+    else
+      this.populateProducts();
+  }
+
   private populateProducts()
   {
     // populating product
@@ -42,6 +56,45 @@ export class ProductsComponent implements OnInit {
     .getAll()
     .switchMap(products => {
       this.products = products;
+      return this.route.queryParamMap;
+    })
+    .subscribe(params => {
+      this.category = params.get('category');
+      
+      // Setting filtered products array
+      this.applyFilter();     
+    });
+  }
+
+  // get product list in order of price
+  private populateProductsByPrice(desc: boolean)
+  {
+    // populating product
+    this.productService
+    .getAllByPrice()
+    .switchMap(products => {
+      this.products = products;
+      if(desc === true)
+        this.products.reverse();
+      return this.route.queryParamMap;
+    })
+    .subscribe(params => {
+      this.category = params.get('category');
+      
+      // Setting filtered products array
+      this.applyFilter();     
+    });
+  }
+
+  // get product list in order of ratings
+  private populateProductsByRating()
+  {
+    // populating product
+    this.productService
+    .getAllByRating()
+    .switchMap(products => {
+      this.products = products;
+      this.products.reverse();
       return this.route.queryParamMap;
     })
     .subscribe(params => {

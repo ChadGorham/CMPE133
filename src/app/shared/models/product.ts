@@ -5,9 +5,9 @@ export interface Product {
     unit: string;
     condition: string;
     isOnsale: boolean;
-    Discount: string;
+    discount: string;
     salePrice: number;
-    Description: string;
+    description: string;
     imageUrl: string;
     category: string;
     rating: number;
