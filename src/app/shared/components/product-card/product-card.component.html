@@ -13,9 +13,12 @@
   </div>
 
   <!-- <div class="corner-ribbon top-left sticky red shadow">Hello</div> -->
-  <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
+  <a href="product/{{ product.$key }}">
+    <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
+  </a>
   <div class="card-body">
-    <h5 class="card-title">{{ product.title }} 
+    <h5 class="card-title">
+        <a href="product/{{ product.$key }}">{{ product.title }} </a>
       <span style="font-size: 14px;color: gray;">({{ product.category }})</span>
     </h5>
     
@@ -73,10 +76,10 @@
       <span class="fa fa-star checked"></span>
     </div>
     
-    
-    <p class="review" style="color: gray; font-size: 14px;">
+    <!-- Product review section -->
+    <!-- <p class="review" style="color: gray; font-size: 14px;">
       "{{ product.review }}"
-    </p>
+    </p> -->
     
     <span *ngIf="product.salePrice" style="color: red">{{ product.salePrice | currency:'USD': true }}</span><s *ngIf="product.salePrice" style="float: right;">{{ product.price | currency:'USD': true}}</s><span *ngIf="!product.salePrice" class="card-text">{{ product.price | currency:'USD': true}}</span>
   </div>

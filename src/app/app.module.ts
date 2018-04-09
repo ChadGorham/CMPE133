@@ -43,6 +43,7 @@ import { WebLoginComponent } from './web-login/web-login.component';
 import { PaymentService } from './payments/payment.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { UnitService } from './unit.service';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -58,7 +59,8 @@ import { UnitService } from './unit.service';
     SignupComponent,
     WebLoginComponent,
     MakePaymentComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +90,14 @@ import { UnitService } from './unit.service';
       { path: 'profile-update', component: ProfileUpdateComponent, canActivate: [AuthGuard] },
 
       { path: 'payment', component: MakePaymentComponent},
+      
+      // add to app.moudule.ts
+      {
+        //displaying a simgle product
+        // Look for parameter for id to edit a product 
+        path: 'product/:id', 
+        component: ProductComponent,  
+      },
       
       // Detail of my order
       { 

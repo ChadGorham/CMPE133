@@ -23,7 +23,9 @@
           <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail" alt=""></div>
         </td>
         <td>
-          {{ item.title }}
+          <a href="product/{{ item.$key }}">
+            {{ item.title }}
+          </a>    
         </td>
         <td>
           <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>

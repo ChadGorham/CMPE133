@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { OrderService } from 'shared/services/order.service';
-import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
-import { Order } from 'shared/models/order';
-import { FirebaseListObservable } from 'angularfire2/database';
-import { AuthService } from 'shared/services/auth.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Router, ActivatedRoute } from '@angular/router';
+//only take 1 item, and this item will automatically complete
+//thus no need to unsubscrible
+import 'rxjs/operator/take';
 
 @Component({
   selector: 'app-order-success',
@@ -12,12 +12,26 @@ import { AuthService } from 'shared/services/auth.service';
   styleUrls: ['./order-success.component.css']
 })
 export class OrderSuccessComponent{
-
   orders$;
+  @Input('order') order;
 
-  constructor(private orderService: OrderService,
-              private authService: AuthService,) 
-              { 
-                this.orders$ = authService.user$.switchMap(u => orderService.getOrdersByUser(u.uid));
-              }
+  //tabe orderId parameter then get the order from firebase
+  constructor(
+    private orderService: OrderService, 
+    private db:AngularFireDatabase,
+    private router: Router,
+    //can read route parameter
+    private route: ActivatedRoute,
+
+  ) { 
+    this.orders$ = orderService.getOrders();
+
+    // get the id from snapshot
+    let id = this.route.snapshot.paramMap.get('id');
+
+    if(id){
+      this.orderService.getOrder(id).take(1).subscribe( o => this.order = o);
+      console.log(this.order);
+    }
+  }
 }
