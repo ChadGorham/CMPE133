@@ -23,8 +23,8 @@ import { ProductComponent } from './components/product/product.component';
     RouterModule.forChild([
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
-      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
-      { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
+      { path: 'check-out', component: CheckOutComponent},
+      { path: 'order-success/:id', component: OrderSuccessComponent},
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
             
       // add to app.moudule.ts
@@ -33,7 +33,6 @@ import { ProductComponent } from './components/product/product.component';
         // Look for parameter for id to edit a product 
         path: 'product/:id', 
         component: ProductComponent,
-        canActivate: [AuthGuard]  
       },
     ])
   ],

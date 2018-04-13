@@ -6,15 +6,36 @@
   type="text" class="form-control" placeholder="Search...">
 </p>
 
-<div class="form-group">
-  <label for="sortBy">Sorted By</label>
-  <select #sorting="ngModel" ngModel (change)="sortBy(sorting.value)" name="sortBy" id="sortBy"  class="form-control">
-      <option (change)="populateProducts()" value="noFilter">No Sorting</option>
-      <option (change)="sortBy(orderByPriceDesc)" value="orderByPriceDesc">Order By Price (High to Low)</option>
-      <option (change)="sortBy(orderByPriceAsc)" value="orderByPriceAsc">Order By Price (Low to High)</option>
-      <option (change)="sortBy(orderByRating)" value="orderByRating">Order By Rating (High to Low)</option>
-  </select>
-</div>
+<!-- Sorted by function -->
+<div class="form-control" style="display: inline-block; border: none; padding: 0px;">
+    <div class="sortBy" style="display: inline-block; padding-top: 8px;">
+      <label for="sortBy">Sorted By</label>
+      <select #sorting="ngModel" ngModel (change)="sortBy(sorting.value)" name="sortBy" id="sortBy">
+          <option (change)="populateProducts()" value="noFilter">Latest First</option>
+          <option (change)="sortBy(orderByPriceDesc)" value="orderByPriceDesc">Highest Price First</option>
+          <option (change)="sortBy(orderByPriceAsc)" value="orderByPriceAsc">Lowest Price First</option>
+          <option (change)="sortBy(orderByRating)" value="orderByRating">Highest Rating First</option>
+      </select>
+    </div>
+    <!-- Page -->
+    <div class="pagination" style="display: inline-block; float: right;">
+      <a (click)="IncOrDecPage(false)">&laquo;</a>
+      <a *ngFor="let page of pageArr" (click)="setPage(page)" [class.active]="page === currentPage">{{page}}</a>
+      <a (click)="IncOrDecPage(true)" >&raquo;</a>
+    </div>
+  
+    <div class="viewBy" style="display: inline-block; float: right; padding-top: 8px;">
+      <label style="display: inline-block;" for="viewBy">Viewed By </label>
+      <select style="display: inline-block;" #viewBy="ngModel" ngModel (change)="setItemsPerPage(viewBy.value)" name="ViewBy">
+        <option (change)="setItemsPerPage(12)" value="12">12</option>
+        <option (change)="setItemsPerPage(18)" value="18">18</option>
+        <option (change)="setItemsPerPage(24)" value="24">24</option>
+      </select>
+    </div>
+    
+  </div>
+
+
 
 
 <!-- Button of Sorting -->
@@ -47,13 +68,15 @@
   
   <div class="col">
     <div class="row" *ngIf="cart$ | async as cart">
+
         <!-- Iterate products and render the products in card of products -->
-        <ng-container *ngFor="let p of filteredProducts; let i = index">
-          <div class="col">  
+        <!-- slice the filterProducted array to appropriate range -->
+        <ng-container *ngFor="let p of filteredProducts.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)); let i = index">
+          <div class="col">
             <product-card [product]="p" [shopping-cart]="cart"></product-card>
           </div>
-        <!-- redering 2 products per row  -->
-        <div *ngIf="(i + 1) % 3 === 0"class="w-100"></div>
+        <!-- redering 3 products per row  -->
+        <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
         </ng-container>  
       </div>
   </div>

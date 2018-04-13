@@ -97,7 +97,7 @@ if (auth) this.userId = auth.uid
   // to enter the payment information
    handlePayment() {
     this.handler.open({
-      name: 'MiniSafeway',
+      name: 'E-Quality',
       excerpt: 'Deposit Funds to Account',
       amount: this.amount
     });

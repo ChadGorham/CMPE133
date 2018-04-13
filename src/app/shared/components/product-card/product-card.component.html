@@ -3,26 +3,25 @@
 <!-- The class name is to make every product card have same height -->
 <div *ngIf="product.title" class="card h-100 d-flex flex-column justify-content-between" style="width: 15rem;">
 
-  <!-- <span *ngIf="product.salePrice" class="sale-tag">
-    SALE
-  </span> -->
+  <!-- Sale tag -->
 	<div *ngIf="product.salePrice" class="badge">
     <i class="left"></i>
     <i class="right"></i>
     SALE
   </div>
 
-  <!-- <div class="corner-ribbon top-left sticky red shadow">Hello</div> -->
   <a href="product/{{ product.$key }}">
     <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
   </a>
+
+
   <div class="card-body">
     <h5 class="card-title">
         <a href="product/{{ product.$key }}">{{ product.title }} </a>
-      <span style="font-size: 14px;color: gray;">({{ product.category }})</span>
+      <!-- <span style="font-size: 14px;color: gray;">({{ product.category }})</span> -->
     </h5>
     
-    <p class="card-text" style="color:gray;">{{ product.description }}</p>
+    <!-- <p class="card-text" style="color:gray;">{{ product.description }}</p> -->
     
     <!-- Product rating, manually put the star icon according to the rating number -->
     <!-- provided by admin. The starts will be shown differetly based on the value given-->
