@@ -2,7 +2,7 @@
   Order Details
 </h1>
 <div class="row">
-  <div class="col-6">
+  <div class="col-5">
       <div class="card">
           <div class="card-body">
             <h5 class="card-title">Shipping information</h5>
@@ -29,14 +29,15 @@
           </div>
         </div>
   </div>
-  <div class="col-6">
+  <div class="col-7">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Order Number: {{ order.$key }}</h5>
           <h6 class="card-title">Purchased Date: {{ order.datePlaced | date}}</h6>
           <ul class="list-group list-group-flush">
             <li *ngFor="let item of order.items" class="list-group-item">
-              {{ item.quantity }} x {{ item.product.title }}
+              <!-- Jun -->
+              {{ item.quantity }} x <a href="product/{{ item.product.key }}" target="_blank">{{ item.product.title }}</a>
               <div class="float-right">
                 {{ item.totalPrice | currency: 'USD': true }}
               </div>
