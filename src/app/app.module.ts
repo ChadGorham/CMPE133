@@ -43,8 +43,6 @@ import { WebLoginComponent } from './web-login/web-login.component';
 import { PaymentService } from './payments/payment.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { UnitService } from './unit.service';
-import { SlidesComponent } from './slides/slides.component';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 
@@ -60,11 +58,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     SignupComponent,
     WebLoginComponent,
     MakePaymentComponent,
-    OrderDetailsComponent,
-    SlidesComponent,
+    OrderDetailsComponent
   ],
   imports: [
-    CarouselModule,
     BrowserModule,
     SharedModule,
     AdminModule,

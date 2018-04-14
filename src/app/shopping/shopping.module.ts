@@ -14,9 +14,12 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from 'shared/services/auth-guard.service';
 import { ProductComponent } from './components/product/product.component';
+import { SlidesComponent } from './components/slides/slides.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   imports: [
+    CarouselModule,
     SharedModule,
     CommonModule,
     FormsModule,
@@ -45,7 +48,8 @@ import { ProductComponent } from './components/product/product.component';
     OrderSuccessComponent,
     MyOrdersComponent,
     ShoppingCartSummaryComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    SlidesComponent
   ]
 })
 export class ShoppingModule { }
