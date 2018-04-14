@@ -3,14 +3,18 @@
   <thead>
     <tr>
       <th>Customer</th>
+      <th>Price</th>
       <th>Date</th>
+      <th>Order Number</th>
       <th></th>
     </tr>
   </thead> 
   <tbody>
     <tr *ngFor="let order of orders$ | async">
       <td>{{ order.shipping.name }}</td>
+      <td>{{ order.purchasePrice | currency:'USD': true }}</td>
       <td>{{ order.datePlaced | date}}</td>
+      <td>{{ order.$key}}</td>
       <td>
         <a [routerLink]="['/my/orders/', order.$key]">View</a>
       </td>

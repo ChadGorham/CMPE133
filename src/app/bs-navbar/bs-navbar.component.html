@@ -8,17 +8,6 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/shopping-cart">
-            <!-- For some reason, the first word should be changed -->
-            <!-- from "fas" to "fa" -->
-            <i class="fa fa-shopping-cart"></i>
-            <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
-              {{ cart.totalItemsCount }}
-            </span>
-          </a>
-        </li>
-
         <ng-template #anonymousUser>
           <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
@@ -31,6 +20,16 @@
     </div>
 
       <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/shopping-cart">
+              <!-- For some reason, the first word should be changed -->
+              <!-- from "fas" to "fa" -->
+              <i class="fa fa-shopping-cart"></i>
+              <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+                {{ cart.totalItemsCount }}
+              </span>
+            </a>
+          </li>
         <ng-template #anonymousUser>
           <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>

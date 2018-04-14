@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
+        "_favicon.ico",
         "../node_modules/font-awesome/fonts"
       ],   
       "index": "index.html",

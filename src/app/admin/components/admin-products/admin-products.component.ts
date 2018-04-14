@@ -14,7 +14,7 @@ export class AdminProductsComponent implements OnDestroy {
  
   subscription: Subscription;
  
-  displayedColumns = ['title', 'price', 'edit'];
+  displayedColumns = ['title', 'price', 'unit', 'category', 'edit'];
   dataSource =  new MatTableDataSource();
   
   @ViewChild(MatPaginator) paginator: MatPaginator;

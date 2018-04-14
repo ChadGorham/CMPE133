@@ -35,6 +35,7 @@
     "g": "^2.0.1",
     "ng2-validation": "^4.2.0",
     "ng4-validators": "^5.1.0",
+    "ngx-bootstrap": "^2.0.3",
     "npm": "^5.7.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
