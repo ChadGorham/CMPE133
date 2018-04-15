@@ -43,7 +43,7 @@ import { WebLoginComponent } from './web-login/web-login.component';
 import { PaymentService } from './payments/payment.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { UnitService } from './unit.service';
-
+import { ProductComponent } from './shopping/components/product/product.component';
 
 
 
@@ -130,6 +130,14 @@ import { UnitService } from './unit.service';
         component: AdminOrdersComponent, 
         //check user login, then check admin login
         canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      // add to app.moudule.ts
+      //jun
+      {
+        //displaying a simgle product
+        // Look for parameter for id to edit a product 
+        path: 'product/:id', 
+        component: ProductComponent,
       }
     ])    
   ],

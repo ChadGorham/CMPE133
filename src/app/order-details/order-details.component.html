@@ -36,8 +36,8 @@
           <h6 class="card-title">Purchased Date: {{ order.datePlaced | date}}</h6>
           <ul class="list-group list-group-flush">
             <li *ngFor="let item of order.items" class="list-group-item">
-              <!-- Jun -->
-              {{ item.quantity }} x <a href="product/{{ item.product.key }}" target="_blank">{{ item.product.title }}</a>
+              <!-- Jun --> 
+              {{ item.quantity }} x <a [routerLink]="['/product/', item.product.key]">{{ item.product.title }}</a>
               <div class="float-right">
                 {{ item.totalPrice | currency: 'USD': true }}
               </div>

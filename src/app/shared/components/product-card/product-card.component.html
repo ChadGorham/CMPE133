@@ -10,14 +10,16 @@
     SALE
   </div>
 
-  <a href="product/{{ product.$key }}">
-    <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
-  </a>
+  <!-- <a href="product/{{ product.$key }}"> -->
+    <!-- not working in the firebase deploy -->
+    <a [routerLink]="['/product/', product.$key]"> 
+      <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
+    </a>
 
 
   <div class="card-body">
     <h5 class="card-title">
-        <a href="product/{{ product.$key }}">{{ product.title }} </a>
+      <a [routerLink]="['/product/', product.$key]"> {{ product.title }} </a>
       <!-- <span style="font-size: 14px;color: gray;">({{ product.category }})</span> -->
     </h5>
     

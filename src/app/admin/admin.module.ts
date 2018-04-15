@@ -10,6 +10,7 @@ import { MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule,
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from 'shared/services/auth-guard.service';
+import { ProductComponent } from '../shopping/components/product/product.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,6 @@ import { AuthGuard } from 'shared/services/auth-guard.service';
     MatSortModule,
     BrowserAnimationsModule,
     RouterModule.forChild([
-
       // Specific route should be on top
       // and general route should be at the bottom
       { 
@@ -50,6 +50,13 @@ import { AuthGuard } from 'shared/services/auth-guard.service';
         component: AdminOrdersComponent, 
         //check user login, then check admin login
         canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      //jun
+      {
+        //displaying a simgle product
+        // Look for parameter for id to edit a product 
+        path: 'product/:id', 
+        component: ProductComponent,
       }
     ])  
   ],

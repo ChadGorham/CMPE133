@@ -23,7 +23,7 @@
           <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail" alt=""></div>
         </td>
         <td>
-          <a href="product/{{ item.$key }}">
+          <a [routerLink]="['/product/', item.$key]">
             {{ item.title }}
           </a>    
         </td>
