@@ -44,6 +44,7 @@ import { PaymentService } from './payments/payment.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { UnitService } from './unit.service';
 import { ProductComponent } from './shopping/components/product/product.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -58,7 +59,8 @@ import { ProductComponent } from './shopping/components/product/product.componen
     SignupComponent,
     WebLoginComponent,
     MakePaymentComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
