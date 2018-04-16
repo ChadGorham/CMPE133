@@ -45,6 +45,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { UnitService } from './unit.service';
 import { ProductComponent } from './shopping/components/product/product.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -60,7 +61,8 @@ import { FooterComponent } from './footer/footer.component';
     WebLoginComponent,
     MakePaymentComponent,
     OrderDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +84,7 @@ import { FooterComponent } from './footer/footer.component';
     NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
+      { path: 'about-us', component: AboutUsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'web-login', component: WebLoginComponent },
       { path: 'signup', component: SignupComponent },
