@@ -1,12 +1,27 @@
-<button
-  (click)="login()"
-  class="loginBtn loginBtn--google">Login with Google
-</button>
-<br>
-<button 
-  (click)="facebookLogin()"
-  class="loginBtn loginBtn--facebook">
-    Login with Facebook
-</button>
-<br>
-<button class="loginBtn loginBtn--email" routerLink="/web-login">Login with miniSafeway</button>
+<html>
+<body>
+<div class="card mx-auto" style="width: 22rem;">
+    <div class="card-body col-centered">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p class="login-info-text">- EASY LOGIN WITH -</p>
+        <div class="wrapper"> 
+          <span class="group-btn  col-lg-6">     
+              <button (click)="login()" class="loginBtn loginBtn--google">Google
+               </button>
+          </span>
+           <span class="group-btn col-lg-6">     
+              <button 
+                (click)="facebookLogin()"
+                class="loginBtn loginBtn--facebook">
+                  Facebook
+               </button>
+          </span>
+      </div> 
+      <p></p>
+    <p class="login-info-text">- OR USING EMAIL -</p> 
+    <div class="text-center"><app-web-login></app-web-login></div>
+    
+    </div>
+  </div>
+  </body>
+  </html>

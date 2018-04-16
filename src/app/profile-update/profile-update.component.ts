@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileUpdateComponent {
   appUser: AppUser;
+  updatedName: string;
   constructor(private auth: AuthService,
               private afAuth: AngularFireAuth,
               private router: Router) 
@@ -34,16 +35,23 @@ export class ProfileUpdateComponent {
     let updatedAddress = newInfo.address;
     let updatedProfilePicture = newInfo.profile_picture;
 
-    console.log(updatedName, updatedAddress, updatedProfilePicture);
-
 
     // Create new set of data with
     // updated address, name, profile_picture
     var newData = {
       name: updatedName,
-    address: updatedAddress,
+      address: updatedAddress,
       profile_picture: updatedProfilePicture
     };
+
+    currUser.updateProfile
+    (
+      {
+        displayName: updatedName,
+        photoURL: updatedProfilePicture
+      }
+    )
+
 
     // go to desired user location to update the information
     ref.child(userId).once("value", function (snapshot) {

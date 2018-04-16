@@ -1,4 +1,6 @@
+<br>
 <app-slides></app-slides>
+
 <!-- search box first vesion, only works with angular-4-data-table-->
 <p class="pt-4">    
   <input
@@ -11,7 +13,7 @@
 <div class="form-control" style="display: inline-block; border: none; padding: 0px;">
     <div class="sortBy" style="display: inline-block; padding-top: 8px;">
       <label for="sortBy">Sorted By</label>
-      <select #sorting="ngModel" ngModel (change)="sortBy(sorting.value)" name="sortBy" id="sortBy">
+      <select class="sortByDropdown" #sorting="ngModel" ngModel (change)="sortBy(sorting.value)" name="sortBy" id="sortBy">
           <option (change)="populateProducts()" value="noFilter">Latest First</option>
           <option (change)="sortBy(orderByPriceDesc)" value="orderByPriceDesc">Highest Price First</option>
           <option (change)="sortBy(orderByPriceAsc)" value="orderByPriceAsc">Lowest Price First</option>
@@ -27,7 +29,7 @@
   
     <div class="viewBy" style="display: inline-block; float: right; padding-top: 8px;">
       <label style="display: inline-block;" for="viewBy">Viewed By </label>
-      <select style="display: inline-block;" #viewBy="ngModel" ngModel (change)="setItemsPerPage(viewBy.value)" name="ViewBy">
+      <select class="viewByDropdown" style="display: inline-block;" #viewBy="ngModel" ngModel (change)="setItemsPerPage(viewBy.value)" name="ViewBy">
         <option (change)="setItemsPerPage(12)" value="12">12</option>
         <option (change)="setItemsPerPage(18)" value="18">18</option>
         <option (change)="setItemsPerPage(24)" value="24">24</option>
@@ -82,4 +84,3 @@
       </div>
   </div>
 </div>
-

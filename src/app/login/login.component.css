@@ -1,12 +1,31 @@
 body { padding: 2em; }
 
 
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.login-info-text {
+  color: #94969f;
+  font-size: 12px;
+  text-align: center;
+}
+.card-container {
+  max-width: 18rem;
+  padding: 40px 40px;
+}
+
 /* Shared */
 .loginBtn {
   box-sizing: border-box;
   position: relative;
   /* width: 13em;  - apply for fixed size */
-  margin: 0.2em;
+  margin: 0.1em;
   padding: 0 15px 0 46px;
   border: none;
   text-align: left;
