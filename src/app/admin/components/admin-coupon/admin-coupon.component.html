@@ -1,0 +1,78 @@
+<!-- Jun -->
+<p class="pt-2">
+  <a routerLink="/admin/coupon/new" class="btn btn-primary">New Coupon</a>
+</p>
+
+<!-- search box second version-->
+<div class="table-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+</div>
+
+<div class="table-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="coupon">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Coupon </mat-header-cell>
+      <mat-cell *matCellDef="let coupon"> {{coupon.coupon}} </mat-cell>
+    </ng-container>
+
+    
+    <!-- Price Column -->
+    <ng-container matColumnDef="discount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Discount </mat-header-cell>
+      <mat-cell *matCellDef="let coupon"> {{coupon.discount}}% </mat-cell>
+    </ng-container>
+
+    <!-- Edit Column -->
+    <ng-container matColumnDef="edit" >
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let coupon"><a [routerLink]="['/admin/coupon/', coupon.$key]">Edit</a></mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+
+
+<!-- </div><header>Managing coupon</header> -->
+<!-- The column that takes half of the page -->
+<!-- Boostrap devided the screen in 12 columns -->
+<!-- 6 columns will be considered half -->
+<!-- <div class="row"> -->
+  <!-- left partition -->
+  <!-- <div class="col-md-6"> -->
+      <!-- use bootstrap form -->
+
+  <!-- </div> -->
+
+  <!-- right partition -->
+  <!-- <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Coupon Code</th>
+          <th>Discount</th>
+          <th></th>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr *ngFor="let coupon of coupons$ | async">
+          <td>{{ coupon.coupon }}</td>
+          <td>{{ coupon.discount }}%</td>
+          <td>
+          </td>
+        </tr>
+      </tbody> 
+    </table>
+  </div>
+</div> -->
+
+

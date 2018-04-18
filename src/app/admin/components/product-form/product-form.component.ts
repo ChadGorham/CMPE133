@@ -32,7 +32,7 @@ export class ProductFormComponent implements OnInit {
     this.units$ = unitService.getUnits();
   
     // retrieve id of product from the address 
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id'); 
     
     // noted that only takes one item, so we don't need to unsubscribe
     if (this.id) this.productService.get(this.id).take(1).subscribe(p => this.product = p);

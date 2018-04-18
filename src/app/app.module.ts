@@ -46,6 +46,9 @@ import { UnitService } from './unit.service';
 import { ProductComponent } from './shopping/components/product/product.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CouponComponent } from './coupon/coupon.component';
+import { AdminCouponComponent } from './admin/components/admin-coupon/admin-coupon.component';
+import { CouponService } from './coupon.service';
 
 
 
@@ -62,7 +65,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MakePaymentComponent,
     OrderDetailsComponent,
     FooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    CouponComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +91,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
       { path: 'about-us', component: AboutUsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'web-login', component: WebLoginComponent },
+      { path: 'coupon', component: CouponComponent },
       { path: 'signup', component: SignupComponent },
 
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
@@ -101,7 +106,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
         //check user login, then check admin login
         canActivate: [AuthGuard] 
       },
-
+      // Coupon Page
+      { 
+        path: 'admin/coupon', 
+        component: AdminCouponComponent, 
+        //check user login, then check admin login
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
       { 
         path: 'admin/orders/:id', 
         component: OrderDetailsComponent, 
@@ -148,7 +159,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
   ],
   providers: [
     PaymentService,
-    UnitService
+    UnitService,
+    CouponService
   ],
   bootstrap: [AppComponent]
 })

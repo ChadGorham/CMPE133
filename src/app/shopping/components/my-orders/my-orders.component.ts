@@ -8,7 +8,7 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './my-orders.component.html',
   styleUrls: ['./my-orders.component.css']
 })
-export class MyOrdersComponent {
+export class MyOrdersComponent { 
   orders$;
   
   constructor(

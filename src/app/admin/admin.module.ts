@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from 'shared/services/auth-guard.service';
 import { ProductComponent } from '../shopping/components/product/product.component';
+import { AdminCouponComponent } from './components/admin-coupon/admin-coupon.component';
+import { CouponService } from '../coupon.service';
+import { CouponFormComponent } from './components/coupon-form/coupon-form.component';
 
 @NgModule({
   imports: [
@@ -32,10 +35,24 @@ import { ProductComponent } from '../shopping/components/product/product.compone
         //check user login, then check admin login
         canActivate: [AuthGuard, AdminAuthGuard] 
       },
+      // and general route should be at the bottom
+      { 
+        path: 'admin/coupon/new', 
+        component: CouponFormComponent, 
+        //check user login, then check admin login
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
       {
         // Look for parater for id to edit a product 
         path: 'admin/products/:id', 
         component: ProductFormComponent, 
+        //check user login, then check admin login
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      {
+        // Look for parater for id to edit a coupon 
+        path: 'admin/coupon/:id', 
+        component: CouponFormComponent, 
         //check user login, then check admin login
         canActivate: [AuthGuard, AdminAuthGuard] 
       },
@@ -65,9 +82,12 @@ import { ProductComponent } from '../shopping/components/product/product.compone
     ProductFormComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
+    AdminCouponComponent,
+    CouponFormComponent,
   ],
   providers: [
     AdminAuthGuard,
+    CouponService
   ]
 })
 export class AdminModule { }

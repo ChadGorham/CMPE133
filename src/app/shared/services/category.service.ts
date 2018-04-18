@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
-export class CategoryService {
+export class CategoryService { 
 
   //inject the firedatabase object
   constructor(private db: AngularFireDatabase) { }

@@ -5,7 +5,7 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
   selector: 'app-slides',
   templateUrl: './slides.component.html',
   providers: [
-    { provide: CarouselConfig, useValue: { interval: 2500, noPause: true, showIndicators: true } }
+    { provide: CarouselConfig, useValue: { interval:4000, noPause: true, showIndicators: true } }
   ]
 })
 export class SlidesComponent {}
