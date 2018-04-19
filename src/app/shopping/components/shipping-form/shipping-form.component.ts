@@ -11,6 +11,8 @@ import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { Observable } from 'rxjs/Observable';
 import { environment } from 'environments/environment';
 import { PaymentService } from '../../../payments/payment.service';
+import { CouponService } from '../../../coupon.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'shipping-form',
@@ -21,10 +23,10 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   @Input('cart') cart: ShoppingCart
 
   cart$: Observable<ShoppingCart>;
-  couponCode: string = "";
+  inputCouponCode: string = "";
   //Jun, 0 means 0% off.
   //Jun, set 50 for testing
-  discount: number = 50;
+  discount: number = 0;
 
   handler: any;
   // the unit of amount is cent
@@ -41,7 +43,9 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private orderService: OrderService,
     private shoppingCartService: ShoppingCartService,
-    private paymentSvc: PaymentService,) {
+    private paymentSvc: PaymentService,
+    private couponService: CouponService
+  ) {
 this.afAuth.authState.subscribe((auth) => {
 if (auth) this.userId = auth.uid
 });
@@ -77,10 +81,59 @@ if (auth) this.userId = auth.uid
   //vertify the coupon code
   //if the code matches the codes in firebase, apply the discount
   //by updating the local discount variable
-  applyCoupon(){
-    let code = this.couponCode;
+  applyCoupon()
+ {
+   const database = firebase.database();  // store database in a variable
+   const ref = database.ref('coupons');  // refrence to the coupons branch
+   console.log(database);
+   // need to compare with existing coupon code in firebase
+   this.cart$.subscribe(cart => this.cart = cart);
+   let validation = false;
+   let couponDiscount = 1;
+   let couponMessage = '';
+   let couponList;
+   let coupons$ = this.couponService.getAll();
+   coupons$.subscribe(coupons => {
+     couponList = coupons;
+     console.log('inside' , couponList);
+     const keys = Object.keys(couponList);
+   // console.log(keys);
+     for (let i = 0; i < keys.length; i++)
+     {
+       let k = keys[i];
+       let couponCode = couponList[k].coupon;
+       let discountAmount = couponList[k].discount;
+       // couponMessage += 'Coupon: ' + couponCode + '  Discount: ' + discountAmount + '%' + '\n';
+       if (this.inputCouponCode === couponCode)
+       {
+         alert('Thank you for using coupon');
+         validation = true;
+         this.discount = discountAmount;
+         console.log(validation);
+         console.log(couponDiscount);
+         // CHANGE PRICE
+         console.log(this.cart.totalPrice * couponDiscount);
+        //  this.discountPrice = this.cart.totalPrice * couponDiscount;
+        //  this.cart.discount = couponDiscount;
+       }
+     }
+     if (!validation)
+       alert('Please input valid coupon');
+   });
+   console.log('final',this.cart);
 
-  }
+
+   // ref.on('value', this.gotData, this.errData);
+
+   // when success
+   /*
+   alert('Thank you for using coupon');
+   */
+
+   // clear the coupon
+  //  document.getElementById('couponCodeInput').value = '';
+ }
+
 
   async placeOrder() 
   {

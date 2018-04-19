@@ -20,3 +20,9 @@ img:active, img:focus {
 {
   border: solid 3px grey;
 }
+
+.nav-link:hover
+{
+  border-bottom: soild 2px #1E90FF;
+
+}
