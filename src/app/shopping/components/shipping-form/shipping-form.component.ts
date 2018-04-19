@@ -21,6 +21,10 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   @Input('cart') cart: ShoppingCart
 
   cart$: Observable<ShoppingCart>;
+  couponCode: string = "";
+  //Jun, 0 means 0% off.
+  //Jun, set 50 for testing
+  discount: number = 50;
 
   handler: any;
   // the unit of amount is cent
@@ -70,14 +74,26 @@ if (auth) this.userId = auth.uid
     this.userSubscription.unsubscribe();
   }
 
+  //vertify the coupon code
+  //if the code matches the codes in firebase, apply the discount
+  //by updating the local discount variable
+  applyCoupon(){
+    let code = this.couponCode;
+
+  }
+
   async placeOrder() 
   {
     // Getting total amount of price in shipping cart
     this.cart$ = await this.shoppingCartService.getCart();
     this.cart$.subscribe(cart => this.cart = cart);
 
+    
+
     // create an order object with userID, shipping info and cart
     let order = new Order(this.userId, this.shipping, this.cart);
+
+    order.purchasePrice = order.purchasePrice * (100-this.discount)/100;
 
     console.log(order);
 

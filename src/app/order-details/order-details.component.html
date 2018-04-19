@@ -45,6 +45,12 @@
             <li class="list-group-item font-weight-bold">
               Total
               <div class="float-right">
+                {{ order.totalAmount | currency: 'USD': true }}
+              </div>
+            </li>
+            <li class="list-group-item font-weight-bold">
+              Purchase Price
+              <div class="float-right">
                 {{ order.purchasePrice | currency: 'USD': true }}
               </div>
             </li>
