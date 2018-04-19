@@ -1,0 +1,109 @@
+body{
+    background-color:#ffffff;
+}
+.ourTeam-hedding{
+    background: linear-gradient(rgba(255, 0, 0, 0.582), rgba(255, 0, 0, 0.507));
+    height:150px;
+    width:100%;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, 0.562)); 
+}
+.ourTeam-hedding h1{
+    color:rgb(0, 0, 0);
+    padding:0px 0px;
+    font-weight:900;
+    z-index: 1;
+}
+.ourTeam-box{
+    border-top: 6px solid rgb(54, 120, 207);
+    background-color: #FFFFFF;
+}
+.section1{
+    padding: 30px 0px 0px 0px;
+}
+.section1 img{
+    border:5px solid rgb(54, 120, 207);
+    padding:5px;
+    border-radius:50%;
+    height:170px;
+    width: 170px;
+}
+.section2 h1{
+    font-size:20px;
+    color:rgb(0, 0, 0);
+    margin:0px;
+    border-bottom:2px solid rgb(54, 120, 207);
+    display: inline-block;
+    padding: 10px 0px;
+}
+.section2 p{
+    background-color: rgb(54, 120, 207);
+    display: inline-block;
+    font-weight: bold;
+    color:#fff;
+    padding: 5px 15px;
+    border-radius: 3px;
+    margin-top: -20px;    
+}
+.section2 span{
+    color:#979597;
+}
+.section2 label{
+    background-color: rgb(54, 120, 207);
+    padding: 8px 10px 8px 10px;
+    color:#fff;
+    font-weight: normal;
+    margin: 30px 0px 35px 0px;
+    border-radius: 2px;
+}
+.section3 p{
+    padding: 10px 15px 0px 15px;
+    font-size:12px;
+    color:#000000;
+}
+.section4{
+    padding:10px 0px 50px 0px;
+}
+.section4 i{
+    color:#fff;
+    padding:3px;
+    border-radius: 2px; 
+    font-size: 12px;
+    background-color: rgb(54, 120, 207);
+    cursor: pointer;
+}
+.section-info{
+    border-top:6px solid rgb(187, 87, 201);
+}
+.section-danger{
+    border-top:6px solid rgb(212, 39, 0);
+}
+.section-info .section1 img{
+    border:5px solid rgb(187, 87, 201);
+    padding:5px;
+}
+.section-info .section2 p{
+    background-color: rgb(187, 87, 201);
+    color:#fff;
+}
+.section-danger .section2 p{
+    background-color: rgb(212, 39, 0);
+    color:#fff;
+}
+.section-danger .section1 img{
+    border:5px solid rgb(212, 39, 0);
+    padding:5px;
+}
+.section-info .section4 i{
+    background-color: rgb(187, 87, 201);  
+}
+.section-danger .section4 i{
+    background-color: rgb(212, 39, 0);  
+}
+.section-info .section2 h1{
+    border-bottom:2px solid rgb(187, 87, 201);
+}
+.section-danger .section2 h1{
+    border-bottom:2px solid rgb(212, 39, 0);
+}

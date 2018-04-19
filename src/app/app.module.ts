@@ -46,6 +46,7 @@ import { UnitService } from './unit.service';
 import { ProductComponent } from './shopping/components/product/product.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { TeamComponent } from './team/team.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { AdminCouponComponent } from './admin/components/admin-coupon/admin-coupon.component';
 import { CouponService } from './coupon.service';
@@ -66,6 +67,7 @@ import { CouponService } from './coupon.service';
     OrderDetailsComponent,
     FooterComponent,
     AboutUsComponent,
+    TeamComponent,
     CouponComponent
   ],
   imports: [
@@ -89,6 +91,7 @@ import { CouponService } from './coupon.service';
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
       { path: 'about-us', component: AboutUsComponent },
+      { path: 'team' , component: TeamComponent },
       { path: 'login', component: LoginComponent },
       { path: 'web-login', component: WebLoginComponent },
       { path: 'coupon', component: CouponComponent },
