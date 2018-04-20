@@ -3,23 +3,22 @@
   <div class="col-md-6">
       <!-- use bootstrap form --> 
       <form #f="ngForm" (ngSubmit)="save(f.value)">
-
           <!-- first input field -->
           <div class="form-group">
-          <!-- for improving the accessibility, use both "title" when user click the label
-              the input field field will immediately get focus -->
-              <label for="coupon">Coupon Code</label>
-              <input #coupon="ngModel" [(ngModel)]="coupon.coupon" name="coupon" id="coupon" type="text" class="form-control" required>
+          <!-- for improving the accessibility, use both "coupon" when user click the label
+              the input field will immediately get focus -->
+              <label for="coupon">Coupon Code:</label>
+              <input #coupon="ngModel" [(ngModel)]="targetCoupon.coupon" name="coupon" id="coupon" type="text" class="form-control" required>
               <div class="alert alert-danger" *ngIf="coupon.touched && coupon.invalid">
                   Coupon code is required
               </div>
           </div>
-
+ 
           <div class="form-group">
-              <label for="discount">Discount</label>
+              <label for="discount">Discount (ex. entering 10 means 10% off) </label>
               <!-- div.input-group>span.input-group-text //then press enter -->
               <div class="input-group mb-3">
-                  <input #discount="ngModel" [(ngModel)]="coupon.discount" name="discount" type="number" class="form-control" aria-label="Amount (to the nearest dollar)" required>
+                  <input #discount="ngModel" [(ngModel)]="targetCoupon.discount" name="discount" type="number" class="form-control" required>
               </div>
               <div class="alert alert-danger" *ngIf="discount.touched && !discount.value || discount.value < 0">
                   <div *ngIf="!discount.value">Discount is required</div>
@@ -29,8 +28,8 @@
       
           <div class="form-group">
               <label for="description">Description</label>
-              <input [ngModel]="coupon.description" name="description"  id="description" type="text" class="form-control" [value]="noDescription">
-              <p>{{coupon.description}}</p>
+              <input #description="ngModel" [ngModel]="targetCoupon.description" name="description"  id="description" type="text" class="form-control" >
+              <p>{{targetCoupon.description}}</p>
           </div>
 
           <button 
@@ -47,7 +46,16 @@
 
   <!-- right partition -->
   <div class="col-md-6">
-      <!-- hide the add to cart button -->
-      <!-- <product-card [product]="product" [show-actions]="false"></product-card> -->
+    <div class="card" > 
+        <div class="card-body">
+        <h4 class="card-title" style="color: rgb(0, 81, 255)">Coupon Information</h4>
+        <p class="card-text"><b>Coupon Code:</b></p>
+        <p class="card-text">{{targetCoupon.coupon}}</p>
+        <p class="card-text"><b>Discount:</b></p>
+        <p class="card-text">{{targetCoupon.discount}}% </p>
+        <p class="card-text"><b>Description:</b></p>
+        <p class="card-text">{{targetCoupon.description}}</p>
+        </div>
+    </div>
   </div>
 </div>

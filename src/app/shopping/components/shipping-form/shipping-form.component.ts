@@ -24,14 +24,13 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
 
   cart$: Observable<ShoppingCart>;
   inputCouponCode: string = "";
-  //Jun, 0 means 0% off.
-  //Jun, set 50 for testing
+  //0 means 0% off. 50 means 50% off.
   discount: number = 0;
 
   handler: any;
   // the unit of amount is cent
   // ex. "amount = 1000", means $10.00 dollars
-  amount = 0;
+  amount: number = 0;
 
   shipping = {};
   userSubscription: Subscription;
@@ -46,9 +45,9 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
     private paymentSvc: PaymentService,
     private couponService: CouponService
   ) {
-this.afAuth.authState.subscribe((auth) => {
-if (auth) this.userId = auth.uid
-});
+    this.afAuth.authState.subscribe((auth) => {
+    if (auth) this.userId = auth.uid
+    });
 }
   
 
@@ -82,57 +81,47 @@ if (auth) this.userId = auth.uid
   //if the code matches the codes in firebase, apply the discount
   //by updating the local discount variable
   applyCoupon()
- {
-   const database = firebase.database();  // store database in a variable
-   const ref = database.ref('coupons');  // refrence to the coupons branch
-   console.log(database);
-   // need to compare with existing coupon code in firebase
-   this.cart$.subscribe(cart => this.cart = cart);
-   let validation = false;
-   let couponDiscount = 1;
-   let couponMessage = '';
-   let couponList;
-   let coupons$ = this.couponService.getAll();
-   coupons$.subscribe(coupons => {
-     couponList = coupons;
-     console.log('inside' , couponList);
-     const keys = Object.keys(couponList);
-   // console.log(keys);
-     for (let i = 0; i < keys.length; i++)
-     {
-       let k = keys[i];
-       let couponCode = couponList[k].coupon;
-       let discountAmount = couponList[k].discount;
-       // couponMessage += 'Coupon: ' + couponCode + '  Discount: ' + discountAmount + '%' + '\n';
-       if (this.inputCouponCode === couponCode)
-       {
-         alert('Thank you for using coupon');
-         validation = true;
-         this.discount = discountAmount;
-         console.log(validation);
-         console.log(couponDiscount);
-         // CHANGE PRICE
-         console.log(this.cart.totalPrice * couponDiscount);
-        //  this.discountPrice = this.cart.totalPrice * couponDiscount;
-        //  this.cart.discount = couponDiscount;
-       }
-     }
-     if (!validation)
-       alert('Please input valid coupon');
-   });
-   console.log('final',this.cart);
+  {
+    const database = firebase.database();  // store database in a variable
+    const ref = database.ref('coupons');  // refrence to the coupons branch
+    console.log(database);
+    // need to compare with existing coupon code in firebase
+    this.cart$.subscribe(cart => this.cart = cart);
+    let validation = false;
+    let couponDiscount = 1;
+    let couponMessage = '';
+    let couponList;
+    let coupons$ = this.couponService.getAll();
+    coupons$.subscribe(coupons => {
+      couponList = coupons;
+      console.log('inside' , couponList);
+      const keys = Object.keys(couponList);
+    // console.log(keys);
+      for (let i = 0; i < keys.length; i++)
+      {
+        let k = keys[i];
+        let couponCode = couponList[k].coupon;
+        let discountAmount = couponList[k].discount;
+        // couponMessage += 'Coupon: ' + couponCode + '  Discount: ' + discountAmount + '%' + '\n';
+        if (this.inputCouponCode === couponCode)
+        {
+          alert('Thank you for using coupon');
+          validation = true;
+          this.discount = discountAmount;
+
+          this.cart$.subscribe(cart => this.amount = cart.totalPrice * (100-this.discount)/100 * 100);
+          
+        }
+      }
+      if (!validation)
+        alert('Please input valid coupon');
+    });
+    console.log('final',this.cart);
 
 
-   // ref.on('value', this.gotData, this.errData);
-
-   // when success
-   /*
-   alert('Thank you for using coupon');
-   */
-
-   // clear the coupon
-  //  document.getElementById('couponCodeInput').value = '';
- }
+    // clear the coupon
+    //  document.getElementById('couponCodeInput').value = '';
+  }
 
 
   async placeOrder() 

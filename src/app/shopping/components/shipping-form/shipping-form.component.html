@@ -2,30 +2,30 @@
 <div class="card">
   <div class="card-body">
     <ul class="list-group list-group-flash">
-      <li class="list-group-item font-weight-bold">
+      <li class="list-group-item font-weight-bold" style="background-color: rgb(247, 180, 57);">
           <input type="text" [(ngModel)]="inputCouponCode" placeholder="Enter Coupon Code">
           <button type="button"  (click)="applyCoupon()">Apply Coupon</button> 
       </li>
       <li class="list-group-item font-weight-bold">
-          Coupon Code you enter: {{couponCode}}
+          Coupon Code you enter: {{inputCouponCode}}
       </li>
       <li class="list-group-item font-weight-bold">
         Total Price:
         <div class="float-right">
-          {{cart.totalAmount | currency: 'USD': true}}
+          {{cart.totalPrice | currency: 'USD': true}}
         </div>
       </li>
       <li class="list-group-item font-weight-bold text-danger">
         Purchase Price:
         <div class="float-right">
-          {{cart.totalAmount * (100 - discount)/100 | currency: 'USD': true}}
+          {{amount/100 | currency: 'USD': true}}
         </div>
       </li>
     </ul>
   </div>
 </div>
-
-<h5>Shipping Information</h5>
+<br>
+<h3 style="color: rgb(7, 131, 247);">Shipping Information</h3>
 <form #f="ngForm">
   <div class="form-group">
     <label for="">Name</label>

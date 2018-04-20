@@ -51,8 +51,6 @@ import { CouponComponent } from './coupon/coupon.component';
 import { AdminCouponComponent } from './admin/components/admin-coupon/admin-coupon.component';
 import { CouponService } from './coupon.service';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
