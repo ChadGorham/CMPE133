@@ -1,5 +1,11 @@
 /* too make sure the top of the catelog not being scrolled up */
-.sticky-top
-{
+
+.sticky-top {
     top: 80px;
+}
+
+a {}
+
+a.active {
+    background: #3FB9F9;
 }

@@ -1,26 +1,28 @@
-<table class="table">
-  <thead>
-    <tr style="background-color: rgb(2, 107, 243)">
-      <th style="color:rgb(250, 250, 250)">Coupon Code</th>
-      <th style="color:rgb(250, 250, 250)">Discount</th>
-      <th></th>
-    </tr>
-  </thead>  
-  <tbody>
-    <tr *ngFor="let coupon of coupons$ | async">
-      <td>{{ coupon.coupon}}</td>
-      <td>{{ coupon.discount }}%</td>
-      <td>
-      </td>
-    </tr>
-  </tbody> 
+<link href="https://fonts.googleapis.com/css?family=Cabin|Exo+2|Oxygen" rel="stylesheet">
+
+<table class="table" style="font-family: Cabin">
+    <thead style="font-family: Oxygen">
+        <tr style="background-color: #b2b0b0 ">
+            <th style="color:rgb(250, 250, 250) ">Coupon Code</th>
+            <th style="color:rgb(250, 250, 250) ">Discount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let coupon of coupons$ | async ">
+            <td>{{ coupon.coupon}}</td>
+            <td>{{ coupon.discount }}%</td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
-<!-- <h1 style="color:rgb(2, 107, 243)">Our BIG saving Coupons are here!</h1>
-<ng-container *ngFor="let c of coupons$ | async">
-  <div class="col">
-    <coupon-card [targetCoupon]="c"></coupon-card>
+<!-- <h1 style="color:rgb(2, 107, 243) ">Our BIG saving Coupons are here!</h1>
+<ng-container *ngFor="let c of coupons$ | async ">
+  <div class="col ">
+    <coupon-card [targetCoupon]="c "></coupon-card>
   </div>
 
-<div *ngIf="(i + 1) % 4 === 0" class="w-100"></div>
+<div *ngIf="(i + 1) % 4===0 " class="w-100 "></div>
 </ng-container>  -->

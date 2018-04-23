@@ -1,48 +1,53 @@
-input[type=text] 
-{
-  width: 23%;
-  box-sizing: border-box;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-  background-image: url('https://cdn1.iconfinder.com/data/icons/flat-web-browser/100/search-24.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
+.sortBy,
+.viewBy {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-input[type=text]:focus 
-{
-  width: 100%;
+input[type=text] {
+    width: 23%;
+    box-sizing: border-box;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    background-image: url('https://cdn1.iconfinder.com/data/icons/flat-web-browser/100/search-24.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
 }
+
+input[type=text]:focus {
+    width: 100%;
+}
+
 
 /* To make some space between every column */
-.col
-{
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+
+.col {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .pagination a {
-  cursor: pointer;
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color .3s;
+    cursor: pointer;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
 }
 
 .pagination a.active {
-  background-color: #58C777;
-  color: white;
+    background-color: #46BAF6;
+    color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
-.viewByDropdown, .sortByDropdown
-{
-  font-size: 16px;
-  border-radius: 5px;
-  padding: 4px;
-  outline: none;
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
 }
 
+.viewByDropdown,
+.sortByDropdown {
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 4px;
+    outline: none;
+}

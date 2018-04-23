@@ -1,53 +1,49 @@
-<h1>Shopping Cart</h1>
+<link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway" rel="stylesheet">
+
+<h1 class="title-section" style="margin-top:30px;font-family: Raleway">Shopping Cart</h1>
 <div class="row col-10" *ngIf="cart$ | async as cart">
-  <p>
-    You have {{ cart.totalItemsCount }} items in your shopping cart.
-    <button
-      *ngIf="cart.items.length" 
-      (click)="clearCart()"
-      class="btn btn-light btn-sm">Clear Shopping Cart</button>
-  </p>
+    <p>
+        You have {{ cart.totalItemsCount }} items in your shopping cart.
+        <button *ngIf="cart.items.length" (click)="clearCart()" class="btn btn-light btn-sm">Clear Shopping Cart</button>
+    </p>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Product</th>
-        <th class="text-center" style="width: 230px">Quantity</th>
-        <th class="text-right" style="width: 230px">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of cart.items">
-        <td>
-          <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail" alt=""></div>
-        </td>
-        <td>
-          <a [routerLink]="['/product/', item.$key]">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product</th>
+                <th class="text-center" style="width: 230px">Quantity</th>
+                <th class="text-right" style="width: 230px">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart.items">
+                <td>
+                    <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail" alt=""></div>
+                </td>
+                <td>
+                    <a [routerLink]="['/product/', item.$key]">
             {{ item.title }}
-          </a>    
-        </td>
-        <td>
-          <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>
-        </td>
-        <td class="text-right">
-          {{ item.totalPrice | currency:'USD':true }}
-        </td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th></th>
-        <th></th>
-        <th class="text-right">Total price: </th>
-        <th class="text-right">{{ cart.totalPrice | currency:'USD': true }}</th>
-      </tr>
-    </tfoot>
-  </table>
-  <a 
-    *ngIf="cart.items.length"
-    routerLink="/check-out"
-    class="btn btn-primary">Check Out</a>
+          </a>
+                </td>
+                <td>
+                    <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>
+                </td>
+                <td class="text-right">
+                    {{ item.totalPrice | currency:'USD':true }}
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th class="text-right">Total price: </th>
+                <th class="text-right">{{ cart.totalPrice | currency:'USD': true }}</th>
+            </tr>
+        </tfoot>
+    </table>
+    <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a>
 
-  
+
 </div>

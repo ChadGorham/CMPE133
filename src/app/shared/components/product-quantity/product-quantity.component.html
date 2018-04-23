@@ -1,19 +1,17 @@
+<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Black+Han+Sans|Bree+Serif|Jua|Karla|Rubik|Righteous" rel="stylesheet">
+
 <!-- to make sure the button row is not bigger than the card -->
 <div class="row no-gutters">
-  <div class="col-2">
-    <button 
-      (click)="removeFromCart()"
-      class="btn btn-outline-info btn-block">-</button>
-  </div>
+    <div class="col-2">
+        <button (click)="removeFromCart()" class="btn btn-block">-</button>
+    </div>
 
-  <div class="col text-center">
-    {{ shoppingCart.getQuantity(product) }} in cart
-  </div>
+    <div class="col text-center" style="color:#898989;font-family:'Rubik';font-weight: bold">
+        {{ shoppingCart.getQuantity(product) }}
+    </div>
 
-  <div class="col-2">
-    <button 
-      (click)="addToCart(product)"
-      class="btn btn-outline-info btn-block">+</button>
-  </div>
+    <div class=" col-2 ">
+        <button (click)="addToCart(product) " class="btn btn-block ">+</button>
+    </div>
 
 </div>

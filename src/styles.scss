@@ -1,18 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "~bootstrap/dist/css/bootstrap.css";
 
 /* for icon */
+
 @import "~font-awesome/css/font-awesome.css";
 
 /* The css is for the admin-product-form */
+
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* make the text not be covered by the top bar */
-body { padding-top : 70px;}
+
+body {
+    padding-top: 70px;
+}
 
 $primary-color: #58C777;
 $secondary-color: #FA8072;
-
 .list-group-item.active {
     z-index: 2;
     color: #fff;
@@ -24,4 +29,12 @@ $secondary-color: #FA8072;
     color: #fff;
     background-color: $secondary-color;
     border-color: $secondary-color;
+}
+
+.title-section {
+    font-size: 36px;
+    border-left: solid 6px #1E90EF;
+    padding-left: 10px;
+    font-weight: bolder;
+    font-family: quicksand;
 }

@@ -1,7 +1,19 @@
 /* to make "... in cart" vertically locate cetner */
-.col
-{
+
+.col {
     display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
+    justify-content: center;
+    /* align horizontal */
+    align-items: center;
+    /* align vertical */
+}
+
+.btn {
+    font-family: Jua;
+    background-color: #6BCAF5;
+    color: white;
+}
+
+.btn:hover {
+    background: #00AAFF;
 }

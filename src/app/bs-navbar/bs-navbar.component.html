@@ -1,64 +1,70 @@
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Cairo|Dosis|Maven+Pro|Nanum+Gothic|Open+Sans+Condensed:300|Poiret+One|Quicksand|Raleway" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
 
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-  <div class="container">
-    <img style="cursor: pointer" class="navbar-brand" routerLink="/" src="../assets/icons/teamlogo.png" height="42" width="42" class="navbar-brand" routerLink="/">
-    <!-- <a class="navbar-brand" routerLink="/">miniSafeway</a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container">
+        <img style="cursor: pointer" class="navbar-brand" routerLink="/" src="../assets/icons/teamlogo.png" height=20% width=20% class="navbar-brand" routerLink="/">
+        <!-- <a class="navbar-brand" routerLink="/">miniSafeway</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
 
 
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-      
-          <li class="nav-item">
-            <span><a class="nav-link" routerLink="/about-us"> About us </a></span>
-          </li>
-          <li class="nav-item">
-              <span><a class="nav-link" routerLink="/team"> Our Team </a></span>
-            </li>
-          <li class="nav-item">
-            <span><a class="nav-link" routerLink="/coupon"> Coupon </a></span>
-          </li>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
 
-        <ng-template #anonymousUser>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/shopping-cart">
-                  <!-- For some reason, the first word should be changed -->
-                  <!-- from "fas" to "fa" -->
-                  <i class="fas fa-tags"></i>
-                   Deals
-                </a>
-              </li>
+                <li class="nav-item" style="margin-left: 20px;">
+                    <span><a class="nav-link" routerLink="/" style="color: #ffffff;"> HOME </a></span>
+                </li>
+                <li class="nav-item" style="margin-left: 80px;">
+                    <span><a class="nav-link" routerLink="/about-us" style="color: #ffffff;"> ABOUT US </a></span>
+                </li>
+                <li class="nav-item" style="margin-left: 80px;">
+                    <span><a class="nav-link" routerLink="/team" style="color: #ffffff;"> OUR TEAM </a></span>
+                </li>
+                <li class="nav-item" style="margin-left: 80px;">
+                    <span><a class="nav-link" routerLink="/coupon" style="color: #ffffff;"> COUPON </a></span>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/shopping-cart">
-                  <!-- For some reason, the first word should be changed -->
-                  <!-- from "fas" to "fa" -->
-                  <i class="fa fa-shopping-cart"></i>
-                </a>
-            </li>
+                <ng-template #anonymousUser>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/shopping-cart">
+                            <!-- For some reason, the first word should be changed -->
+                            <!-- from "fas" to "fa" -->
+                            <i class="fas fa-tags"></i> Deals
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login">
-              <i class="fas fa-sign-in-alt"></i> Login</a>
-          </li>
-          <!--li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/shopping-cart">
+                            <!-- For some reason, the first word should be changed -->
+                            <!-- from "fas" to "fa" -->
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login">
+                            <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i> Login</a>
+                    </li>
+                    <!--li class="nav-item">
             <a class="nav-link" routerLink="/signup">
               <i class="fas fa-user-plus"></i> Signup</a>
           </li-->
-          
-        </ng-template>
-      </ul>
-    </div>
-    
-      <ul class="navbar-nav">
-        <ng-template #anonymousUser>
-          
-          <!--li class="nav-item">
+
+                </ng-template>
+            </ul>
+        </div>
+
+        <ul class="navbar-nav">
+            <ng-template #anonymousUser>
+
+                <!--li class="nav-item">
             <a class="nav-link" routerLink="/login">
               <i class="fas fa-sign-in-alt"></i> Login</a>
           </li>
@@ -66,20 +72,20 @@
             <a class="nav-link" routerLink="/signup">
               <i class="fas fa-user-plus"></i> Signup</a>
           </li-->
-          <li ngbDropdown class="nav-item dropdown">
-              <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-user"></i>
-              </a>
-              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="nav-link" routerLink="/login">
-                    <i class="fas fa-sign-in-alt"></i> Login</a>
-                    <a class="nav-link" routerLink="/signup">
-                      <i class="fas fa-user-plus"></i> Signup</a>
-              </div>
-            </li>
-        </ng-template>
-        
-        <!-- <li class="nav-item">
+                <li ngbDropdown class="nav-item dropdown">
+                    <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="nav-link" routerLink="/login">
+                            <i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a class="nav-link" routerLink="/signup">
+                            <i class="fas fa-user-plus"></i> Signup</a>
+                    </div>
+                </li>
+            </ng-template>
+
+            <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/shopping-cart">
 
               <i class="fas fa-tags"></i>
@@ -89,40 +95,55 @@
                Coupons
             </a>
           </li> -->
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/shopping-cart">
-              <!-- For some reason, the first word should be changed -->
-              <!-- from "fas" to "fa" -->
-              <i class="fa fa-shopping-cart"></i>
-              <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/shopping-cart">
+                    <!-- For some reason, the first word should be changed -->
+                    <!-- from "fas" to "fa" -->
+                    <i class="fa fa-shopping-cart" src="https://previews.123rf.com/images/asmati/asmati1706/asmati170605898/80929972-shopping-cart-sign-vector-white-icon-with-soft-shadow-on-transparent-background-.jpg"></i>
+                    <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
                 {{ cart.totalItemsCount }}
               </span>
-            </a>
-          </li>
-        <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="profile-picture" src="{{appUser.profile_picture}}" onerror="this.src='https://image.flaticon.com/icons/svg/16/16480.svg'">
-            {{ appUser.name }}
-          </a>
-          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" routerLink="/my/orders">
-              <i class="fas fa-dollar-sign"></i>
-              My Orders</a>
-            <a class="dropdown-item" routerLink="/profile">
-              <i class="fas fa-user-circle"></i> My Profile</a>
-            <ng-container *ngIf="appUser.isAdmin">
-              <a class="dropdown-item" routerLink="/admin/orders">
-                <i class="fas fa-sitemap"></i> Manage Orders</a>
-              <a class="dropdown-item" routerLink="/admin/products">
-                <i class="fas fa-sitemap"></i> Manage Products</a>
-              <a class="dropdown-item" routerLink="/admin/coupon">
-                <i class="fas fa-sitemap"></i> Manage Coupons</a>
-            </ng-container>
-            <a class="dropdown-item" (click)="logout()">
-                <i class="fas fa-sign-out-alt"></i> Log Out</a>
-          </div>
-        </li>
-      </ul>
-  </div>
+                </a>
+            </li>
+            <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff;">
+                    <img class="profile-picture" src="{{appUser.profile_picture}}" onerror="this.src='https://image.flaticon.com/icons/svg/16/16480.svg'"> {{ appUser.name }}
+                </a>
+                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" routerLink="/my/orders">
+                        <i class="fas fa-dollar-sign"></i> My Orders</a>
+                    <a class="dropdown-item" routerLink="/profile">
+                        <i class="fas fa-user-circle"></i> My Profile</a>
+                    <ng-container *ngIf="appUser.isAdmin">
+                        <a class="dropdown-item" routerLink="/admin/orders">
+                            <i class="fas fa-sitemap"></i> Manage Orders</a>
+                        <a class="dropdown-item" routerLink="/admin/products">
+                            <i class="fas fa-sitemap"></i> Manage Products</a>
+                        <a class="dropdown-item" routerLink="/admin/coupon">
+                            <i class="fas fa-sitemap"></i> Manage Coupons</a>
+                    </ng-container>
+                    <a class="dropdown-item" (click)="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Log Out</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 
 </nav>
+
+
+<script type="text/javascript">
+    $(function() {
+        var header = $(".navbar");
+
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 50) {
+                header.addClass("scrolled");
+            } else {
+                header.removeClass("scrolled");
+            }
+        });
+
+    });
+</script>

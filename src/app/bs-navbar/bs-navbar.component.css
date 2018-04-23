@@ -1,27 +1,59 @@
-.dropdown-toggle, .dropdown-item { 
-  cursor: pointer;
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    color: black;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #6BCAF5, rgb(0, 170, 255));
+    transition: 0.3s;
 }
+
+.scrolled {
+    background-color: white;
+    transition: 0.3s;
+}
+
+.nav-item {
+    color: #ffffff;
+    font-family: "Quicksand", sans-serif;
+}
+
+.nav-link {
+    font-size: 17px;
+}
+
+.nav-item:hover {
+    color: #969696;
+}
+
+.dropdown-toggle,
+.dropdown-item {
+    cursor: pointer;
+}
+
 
 /* Get rid of the blue square when click the image of home button */
-img:active, img:focus {
-  outline: 0;
-  border: none;
-  outline-style: none
+
+img:active,
+img:focus {
+    outline: 0;
+    border: none;
+    outline-style: none
 }
 
-.profile-picture
-{
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+.profile-picture {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 }
 
-.profile-picture:hover
-{
-  border: solid 3px grey;
+.profile-picture:hover {
+    border: solid 3px grey;
 }
 
-.nav-link:hover
-{
-  border-bottom: soild 2px #1E90FF;
+.nav-link:hover {
+    border-bottom: soild 2px #1E90FF;
 }
