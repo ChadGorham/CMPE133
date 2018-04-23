@@ -63,13 +63,13 @@ body{
     color:#000000;
 }
 .section4{
-    padding:10px 0px 50px 0px;
+    padding:20px 0px 40px 0px;
 }
 .section4 i{
     color:#fff;
     padding:3px;
     border-radius: 2px; 
-    font-size: 12px;
+    font-size: 30px;
     background-color: rgb(54, 120, 207);
     cursor: pointer;
 }
