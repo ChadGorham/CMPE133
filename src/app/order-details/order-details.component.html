@@ -1,6 +1,7 @@
-<h1>
-  Order Details
-</h1>
+<br>
+<div style="border-bottom: solid lightgrey; padding-bottom: 15px;">
+  <span class="title-section" style="font-family: Raleway">Order details</span>
+</div>
 <div class="row">
   <div class="col-5">
       <div class="card">
@@ -37,7 +38,8 @@
           <ul class="list-group list-group-flush">
             <li *ngFor="let item of order.items" class="list-group-item">
               <!-- Jun --> 
-              {{ item.quantity }} x <a [routerLink]="['/product/', item.product.key]">{{ item.product.title }}</a>
+              <button type="button" class="btn" (click)="addToCartWithProductKey(item.product.key)">Add to cart</button>
+              &nbsp; &nbsp;&nbsp;{{ item.quantity }} x <a [routerLink]="['/product/', item.product.key]">{{ item.product.title }}</a>
               <div class="float-right">
                 {{ item.totalPrice | currency: 'USD': true }}
               </div>
