@@ -1,5 +1,7 @@
-
-<h2>Check Out Page</h2>
+<br>
+<div style="border-bottom: solid lightgrey; padding-bottom: 15px;">
+    <span class="title-section" style="font-family: Raleway">Check Out</span>
+  </div>
 <div class="row" *ngIf="cart$ | async as cart">
   <div class="col-6">
     <shipping-form [cart]="cart"></shipping-form>

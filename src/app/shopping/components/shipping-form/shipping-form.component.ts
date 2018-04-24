@@ -26,6 +26,7 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   inputCouponCode: string = "";
   //0 means 0% off. 50 means 50% off.
   discount: number = 0;
+  showCoupon = false;
 
   handler: any;
   // the unit of amount is cent
@@ -75,6 +76,12 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   ngOnDestroy()
   {
     this.userSubscription.unsubscribe();
+  }
+
+  // Used for show coupon box when button is clicked
+  show()
+  {
+    this.showCoupon = true;
   }
 
   //vertify the coupon code

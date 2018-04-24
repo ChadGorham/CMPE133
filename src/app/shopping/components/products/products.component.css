@@ -51,3 +51,18 @@ input[type=text]:focus {
     padding: 4px;
     outline: none;
 }
+
+.search
+{
+display: inline-block; 
+margin-left: 20px; 
+width: 920px; 
+vertical-align: 5px;
+}
+
+.toolbar
+{
+border: none;
+border-top: solid lightgrey;
+padding-top: 20px;
+}

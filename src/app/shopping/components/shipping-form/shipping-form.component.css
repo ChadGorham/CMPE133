@@ -1,0 +1,21 @@
+.useCoupon
+{
+cursor: pointer;
+background-color: #1E90EF;
+color: white;
+text-align: center;
+padding: 12px;
+font-size: 24px;
+width: 200px;
+border: none;
+}
+
+.useCoupon:hover
+{
+background-color: #1f80d0;
+}
+
+a:not([href]):not([tabindex]) {
+text-decoration: none;
+color:white;
+}

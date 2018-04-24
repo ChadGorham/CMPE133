@@ -1,6 +1,11 @@
-
-<div class="card">
-  <div class="card-body">
+<div class="card" style="border: none;">
+<!-- Apply Coupon button -->
+<a class="useCoupon" *ngIf="!showCoupon" (click)="show()">
+    Use Coupon
+</a> 
+    
+    <!-- Coupon Box -->
+    <div *ngIf="showCoupon" class="card-body">
     <ul class="list-group list-group-flash">
       <li class="list-group-item font-weight-bold" style="background-color: rgb(247, 180, 57);">
           <input type="text" [(ngModel)]="inputCouponCode" placeholder="Enter Coupon Code">

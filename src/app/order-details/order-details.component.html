@@ -38,7 +38,7 @@
           <ul class="list-group list-group-flush">
             <li *ngFor="let item of order.items" class="list-group-item">
               <!-- Jun --> 
-              <button type="button" class="btn" (click)="addToCartWithProductKey(item.product.key)">Add to cart</button>
+              <button type="button" class="btn btn-primary" (click)="addToCartWithProductKey(item.product.key)">Add to cart</button>
               &nbsp; &nbsp;&nbsp;{{ item.quantity }} x <a [routerLink]="['/product/', item.product.key]">{{ item.product.title }}</a>
               <div class="float-right">
                 {{ item.totalPrice | currency: 'USD': true }}

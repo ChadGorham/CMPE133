@@ -1,46 +1,51 @@
 <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway" rel="stylesheet">
-
 <br>
-<app-slides></app-slides>
+<div class="slider" style="box-shadow: 18px -15px #cbc6c6a3; padding-bottom:10px;">
+    <app-slides></app-slides>
+</div>
+
+<div style="padding-bottom: 15px; display: inline-block">
+    <span class="title-section" style="font-family: Raleway;">Products</span>
+</div>
+
+
 
 <!-- search box first vesion, only works with angular-4-data-table-->
-<p class="pt-4">
+<div class="search">
     <input #query (keyup)="titleFilter(query.value)" type="text" class="form-control" placeholder="Search...">
-</p>
-
-<div style="border-bottom: solid lightgrey; padding-bottom: 15px;">
-    <span class="title-section" style="font-family: Raleway">Products</span>
 </div>
+
+
 
 
 <!-- Sorted by function -->
-<div class="form-control" style="display: incline-block; border: none; padding: 0px;">
+<div class="toolbar">
     <div class="sortBy" style="display: inline-block; padding-top: 8px;">
-        <label for="sortBy">Sorted By</label>
-        <select class="sortByDropdown" #sorting="ngModel" ngModel (change)="sortBy(sorting.value)" name="sortBy" id="sortBy">
-          <option (change)="populateProducts()" value="noFilter">Latest First</option>
-          <option (change)="sortBy(orderByPriceDesc)" value="orderByPriceDesc">Highest Price First</option>
-          <option (change)="sortBy(orderByPriceAsc)" value="orderByPriceAsc">Lowest Price First</option>
-          <option (change)="sortBy(orderByRating)" value="orderByRating">Highest Rating First</option>
-      </select>
+    <label for="sortBy">Sorted By</label>
+    <select class="sortByDropdown" #sorting="ngModel" ngModel (change)="sortBy(sorting.value)" name="sortBy" id="sortBy">
+    <option (change)="populateProducts()" value="noFilter">Latest First</option>
+    <option (change)="sortBy(orderByPriceDesc)" value="orderByPriceDesc">Highest Price First</option>
+    <option (change)="sortBy(orderByPriceAsc)" value="orderByPriceAsc">Lowest Price First</option>
+    <option (change)="sortBy(orderByRating)" value="orderByRating">Highest Rating First</option>
+    </select>
     </div>
     <!-- Page -->
     <div class="pagination" style="display: inline-block; float: right;">
-        <a (click)="IncOrDecPage(false)">&laquo;</a>
-        <a *ngFor="let page of pageArr" (click)="setPage(page)" [class.active]="page === currentPage">{{page}}</a>
-        <a (click)="IncOrDecPage(true)">&raquo;</a>
+    <a (click)="IncOrDecPage(false)">&laquo;</ a>
+    <a *ngFor="let page of pageArr" (click)="setPage(page)" [class.active]="page === currentPage">{{page}}</ a>
+    <a (click)="IncOrDecPage(true)">&raquo;</ a>
     </div>
-
+    
     <div class="viewBy" style="display: inline-block; float: right; padding-top: 8px;">
-        <label style="display: inline-block;" for="viewBy">Viewed By </label>
-        <select class="viewByDropdown" style="display: inline-block;" #viewBy="ngModel" ngModel (change)="setItemsPerPage(viewBy.value)" name="ViewBy">
-        <option (change)="setItemsPerPage(12)" value="12">12</option>
-        <option (change)="setItemsPerPage(18)" value="18">18</option>
-        <option (change)="setItemsPerPage(24)" value="24">24</option>
-      </select>
+    <label style="display: inline-block;" for="viewBy">Viewed By </label>
+    <select class="viewByDropdown" style="display: inline-block;" #viewBy="ngModel" ngModel (change)="setItemsPerPage(viewBy.value)" name="ViewBy">
+    <option (change)="setItemsPerPage(12)" value="12">12</option>
+    <option (change)="setItemsPerPage(18)" value="18">18</option>
+    <option (change)="setItemsPerPage(24)" value="24">24</option>
+    </select>
     </div>
-
-</div>
+    
+    </div>
 
 
 
