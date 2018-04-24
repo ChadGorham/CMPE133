@@ -16,6 +16,7 @@ export class ProductComponent {
   // decide if "add to cart" button is shown or not
   @Input('show-actions') showActions = true;
   @Input('shopping-cart') shoppingCart: ShoppingCart;
+  quanity:number = 1;
 
   constructor(
     private productService: ProductService,
@@ -36,6 +37,11 @@ export class ProductComponent {
   addToCart()
   {
     this.cartService.addToCart(this.product);
+  }
+
+  addToCartWithNumber()
+  {
+    this.cartService.addToCartWithNumber(this.product, this.quanity);
   }
 }
 

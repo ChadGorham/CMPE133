@@ -1,3 +1,5 @@
+<br>
+<br>
 <div *ngIf="product">
     <div class="row">
         <!-- bootstrap divide the screen to 12 columns, 6 means half of the screen -->
@@ -6,7 +8,7 @@
             <!-- <product-filter [category]="category"></product-filter> -->
             <product-filter [category]="category"></product-filter>
         </div>
-        <div class="col-md-6 product-card">
+        <div class="col-md-6">
             <div *ngIf="product" class="card-body">
                 <h1 class="card-title">{{product.title}}</h1>
                 <!-- Product rating, manually put the star icon according to the rating number -->
@@ -68,22 +70,28 @@
             </div>
         </div>
         <div *ngIf="product" class="col-md">
-            <div>
+            <div class="card" >
+              <div>
                 <span *ngIf="product.salePrice" class="sale-tag">
-                  &ensp;SALE&ensp;
-              </span>
+                    &ensp;SALE&ensp;
+                </span>
+              </div>
+              <img class="card-img-top" [src]="product.imageUrl">
+              <div class="card-body">
+                <h5 class="card-title">{{product.title}}</h5>
+                <div class="form-group">
+                  <!-- <label for="quanity">Quanity</label> -->
+                  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="addToCartWithNumber()">Add to cart</button>
+                  <select type="number"  class="form-control" [(ngModel)]="quanity">
+                      <option [ngValue]=1 >1</option>
+                      <option [ngValue]=2 >2</option>
+                      <option [ngValue]=3 >3</option>
+                      <option [ngValue]=4 >4</option> 
+                      <option [ngValue]=5 >5</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <img class="card-img-top" [src]="product.imageUrl">
-            <!-- The footer of the card -->
-            <div *ngIf="showActions" class="card-footer">
-                <!-- Only show add to cart when quantity is 0 -->
-                <button (click)="addToCart()" class="btn btn-secondary btn-block">Add to Cart</button>
-
-                <ng-template #updateQuantity>
-                    <product-quantity [product]="product" [shopping-cart]="shoppingCart">
-                    </product-quantity>
-                </ng-template>
-            </div>
-        </div>
+          </div>
     </div>
 </div>

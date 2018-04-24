@@ -25,6 +25,11 @@ export class ShoppingCartService {
     this.updateItem(product, 1);
   }
 
+  async addToCartWithNumber(product: Product, quantity: number)
+  {
+    this.updateItem(product, quantity);
+  }
+
   async removeFromCart(product: Product)
   {
     this.updateItem(product, -1);
