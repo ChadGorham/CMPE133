@@ -1,21 +1,39 @@
-.useCoupon
-{
-cursor: pointer;
-background-color: #1E90EF;
-color: white;
-text-align: center;
-padding: 12px;
-font-size: 24px;
-width: 200px;
-border: none;
+.useCoupon {
+    cursor: pointer;
+    background-color: #1E90EF;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 24px;
+    width: 200px;
+    border: none;
 }
 
-.useCoupon:hover
-{
-background-color: #1f80d0;
+.useCoupon:hover {
+    background-color: #1f80d0;
+}
+
+#coupon {
+    height: 40px;
+}
+
+#apply {
+    vertical-align: -2px;
+    margin-left: -4px;
+    color: white;
+    width: 100px;
+    height: 40px;
+    background: #0ABAB5;
+    font-family: 'Lato';
+    font-size: 20px;
+    padding: 2px;
+}
+
+#apply:hover {
+    background: rgb(14, 131, 127);
 }
 
 a:not([href]):not([tabindex]) {
-text-decoration: none;
-color:white;
+    text-decoration: none;
+    color: white;
 }

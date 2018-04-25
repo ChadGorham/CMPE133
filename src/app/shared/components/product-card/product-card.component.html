@@ -91,7 +91,7 @@
         <!-- The footer of the card -->
         <div *ngIf="showActions && shoppingCart" class="card-footer">
             <!-- Only show add to cart when quantity is 0 -->
-            <button *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity" (click)="addToCart()" class="btn btn-secondary btn-block">Add to Cart</button>
+            <button *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity" (click)="addToCart()" class="btn add btn-block">Add to Cart</button>
 
             <ng-template #updateQuantity>
                 <product-quantity [product]="product" [shopping-cart]="shoppingCart">

@@ -1,83 +1,81 @@
+<link href="https://fonts.googleapis.com/css?family=Lato|Poiret+One" rel="stylesheet">
 <div class="card" style="border: none;">
-<!-- Apply Coupon button -->
-<a class="useCoupon" *ngIf="!showCoupon" (click)="show()">
+    <!-- Apply Coupon button -->
+    <a class="useCoupon" *ngIf="!showCoupon" (click)="show()">
     Use Coupon
-</a> 
-    
+</a>
+
     <!-- Coupon Box -->
     <div *ngIf="showCoupon" class="card-body">
-    <ul class="list-group list-group-flash">
-      <li class="list-group-item font-weight-bold" style="background-color: rgb(247, 180, 57);">
-          <input type="text" [(ngModel)]="inputCouponCode" placeholder="Enter Coupon Code">
-          <button type="button"  (click)="applyCoupon()">Apply Coupon</button> 
-      </li>
-      <li class="list-group-item font-weight-bold">
-          Coupon Code you enter: {{inputCouponCode}}
-      </li>
-      <li class="list-group-item font-weight-bold">
-        Total Price:
-        <div class="float-right">
-          {{cart.totalPrice | currency: 'USD': true}}
-        </div>
-      </li>
-      <li class="list-group-item font-weight-bold text-danger">
-        Purchase Price:
-        <div class="float-right">
-          {{amount/100 | currency: 'USD': true}}
-        </div>
-      </li>
-    </ul>
-  </div>
+        <ul class="list-group list-group-flash">
+            <li class="list-group-item font-weight-bold" style="background-color: rgb(247, 180, 57);">
+                <input id="coupon" type="text" [(ngModel)]="inputCouponCode" placeholder="Enter Coupon Code">
+                <button id="apply" type="button" (click)="applyCoupon()">Apply</button>
+            </li>
+            <li class="list-group-item font-weight-bold">
+                Coupon Code you enter: {{inputCouponCode}}
+            </li>
+            <li class="list-group-item font-weight-bold">
+                Total Price:
+                <div class="float-right">
+                    {{cart.totalPrice | currency: 'USD': true}}
+                </div>
+            </li>
+            <li class="list-group-item font-weight-bold text-danger">
+                Purchase Price:
+                <div class="float-right">
+                    {{amount/100 | currency: 'USD': true}}
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
 <br>
 <h3 style="color: rgb(7, 131, 247);">Shipping Information</h3>
 <form #f="ngForm">
-  <div class="form-group">
-    <label for="">Name</label>
-    <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
-    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-      <div *ngIf="name.errors.required">Name is required.</div>
+    <div class="form-group">
+        <label for="">Name</label>
+        <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors.required">Name is required.</div>
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="">Address</label>
-    <input #addressLine1="ngModel" name="addressLine1" [(ngModel)]="shipping.addressLine1" type="text" class="form-control" placeholder="Line 1" required>
-    <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
-      <div *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
+    <div class="form-group">
+        <label for="">Address</label>
+        <input #addressLine1="ngModel" name="addressLine1" [(ngModel)]="shipping.addressLine1" type="text" class="form-control" placeholder="Line 1" required>
+        <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+            <div *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for=""></label>
-    <input #addressLine2="ngModel" name="addressLine2" [(ngModel)]="shipping.addressLine2" type="text" class="form-control" placeholder="Line 2">
-  </div>
-  <div class="form-group">
-    <label for="">City</label>
-    <input #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" class="form-control" required>
-    <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
-      <div *ngIf="city.errors.required">City is required.</div>
+    <div class="form-group">
+        <label for=""></label>
+        <input #addressLine2="ngModel" name="addressLine2" [(ngModel)]="shipping.addressLine2" type="text" class="form-control" placeholder="Line 2">
     </div>
-  </div>
-  <div class="form-group">
-    <label for="">State</label>
-    <input #state="ngModel" name="state" [(ngModel)]="shipping.state" type="text" class="form-control" required>
-    <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
-      <div *ngIf="state.errors.required">State is required.</div>
+    <div class="form-group">
+        <label for="">City</label>
+        <input #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+            <div *ngIf="city.errors.required">City is required.</div>
+        </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="">Zip Code</label>
-    <input #zipcode="ngModel" name="zipcode" [(ngModel)]="shipping.zipcode" type="text" class="form-control" required>
-    <div class="alert alert-danger" *ngIf="zipcode.touched && zipcode.invalid">
-      <div *ngIf="zipcode.errors.required">Zipcode is required.</div>
+    <div class="form-group">
+        <label for="">State</label>
+        <input #state="ngModel" name="state" [(ngModel)]="shipping.state" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
+            <div *ngIf="state.errors.required">State is required.</div>
+        </div>
     </div>
-  </div>
+    <div class="form-group">
+        <label for="">Zip Code</label>
+        <input #zipcode="ngModel" name="zipcode" [(ngModel)]="shipping.zipcode" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="zipcode.touched && zipcode.invalid">
+            <div *ngIf="zipcode.errors.required">Zipcode is required.</div>
+        </div>
+    </div>
 
-  <button
-    [disabled]="!f.valid"
-    (click)="handlePayment()"
-    class="btn btn-primary">Place Order</button>
+    <button [disabled]="!f.valid" (click)="handlePayment()" class="btn btn-primary">Place Order</button>
 
-  <!-- <button
+    <!-- <button
   [disabled]="!f.valid"
   (click)="saveShipping()"
   class="btn btn-primary">Save Shipping</button> -->

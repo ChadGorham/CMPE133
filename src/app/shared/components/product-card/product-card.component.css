@@ -19,6 +19,15 @@
     font-weight: 200px;
 }
 
+.add {
+    background: #FA8072;
+    color: white;
+}
+
+.add:hover {
+    background: rgb(165, 71, 60);
+}
+
 .card-footer {
     margin-top: 10px;
     margin-bottom: -10px;
