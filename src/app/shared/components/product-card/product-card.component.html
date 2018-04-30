@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Bree+Serif|Jua|Karla|Rubik" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Stardos+Stencil" rel="stylesheet">
 
-<!-- The class name is to make every product card have same height -->
 <div *ngIf="product.title" class="card h-100 d-flex flex-column justify-content-between" style="width: 15rem;">
 
     <!-- Sale tag -->
@@ -86,7 +86,9 @@
       "{{ product.review }}"
     </p> -->
 
-        <span *ngIf="product.salePrice" style="color: red">{{ product.salePrice | currency:'USD': true }}</span><s *ngIf="product.salePrice" style="float: right;">{{ product.price | currency:'USD': true}}</s><span *ngIf="!product.salePrice" class="card-text">{{ product.price | currency:'USD': true}}</span>
+        <span *ngIf="product.salePrice" style="color: red" class="salePrice">{{ product.salePrice | currency:'USD': true }}</span>
+        <s *ngIf="product.salePrice" style="float: right; color: grey;">{{ product.price | currency:'USD': true}}</s>
+        <span *ngIf="!product.salePrice" class="card-text" class="regularPrice">{{ product.price | currency:'USD': true}}</span>
 
         <!-- The footer of the card -->
         <div *ngIf="showActions && shoppingCart" class="card-footer">

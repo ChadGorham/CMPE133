@@ -107,7 +107,7 @@
             </li>
             <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
                 <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff;">
-                    <img class="profile-picture" src="{{appUser.profile_picture}}" onerror="this.src='https://image.flaticon.com/icons/svg/16/16480.svg'"> {{ appUser.name }}
+                    <img class="profile-picture" src="{{appUser.profile_picture}}" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqtJu5_mKrVY0G4bQbLMNo2g0qY2QW0aFNP_jRnKQc3e4x5Rgmvw'"> {{ appUser.name }}
                 </a>
                 <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" routerLink="/my/orders">
@@ -130,20 +130,3 @@
     </div>
 
 </nav>
-
-
-<script type="text/javascript">
-    $(function() {
-        var header = $(".navbar");
-
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-            if (scroll >= 50) {
-                header.addClass("scrolled");
-            } else {
-                header.removeClass("scrolled");
-            }
-        });
-
-    });
-</script>

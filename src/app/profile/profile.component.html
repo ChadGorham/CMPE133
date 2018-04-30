@@ -3,45 +3,46 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 </head>
 <br><br>
-<div style="border-bottom: solid lightgrey; padding-bottom: 15px;">
-  <span class="title-section" style="font-family: Raleway">Profile</span>
-</div>
 <body>
-    <!-- The profile picture will the default image if the image url is invalid provided by users -->
-    <div style="margin-top: 5px;" class="row">
-        <!-- Take 3 out of 12 columns of the page -->
-        <!-- around 25% of the page for catelog -->
-        <div style="text-align: center;" class="col-4">
-            <img name="profile_picture" class="thumbnail" src="{{appUser.profile_picture}}" onerror="this.src='https://image.flaticon.com/icons/svg/16/16480.svg'" />
-            <div class="name" style="margin-right: 50px;">{{appUser.name}}</div>
-        </div>
-
-        <div class="col" style="border: 3px solid lightgray; height: 300px; margin-top: 12px;">
-            <div class="row">
-                <div class="email" style="padding: 20px; margin: auto;">
-                    <a style="color:black; text-decoration: none;" routerLink='/profile-update'>
-                        <i class="fa fa-envelope" style="font-size: 48px;"></i>
-                        <span style="font-size: 32px; margin-left: 20px;">{{appUser.email}}</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="address" style="padding: 20px; margin: auto;">
-                    <a style="color:black; text-decoration: none;" routerLink='/profile-update'>
-                        <i class="fa fa-home" style="font-size: 56px;"></i>
-                        <span style="font-size: 32px; margin-left: 20px;">{{appUser.address}} </span>
-                    </a>
-                </div>
-            </div>
+  <div class="container py-3">
+    <div class="card">
+      <div class="row ">
+        <div class="col-md-4">
+            <a style="text-decoration: none;" routerLink='/profile-update'>
+                <img src="{{appUser.profile_picture}}" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqtJu5_mKrVY0G4bQbLMNo2g0qY2QW0aFNP_jRnKQc3e4x5Rgmvw'" class="thumbnail">
+            </a>
+          </div>
+          <div class="col-md-8 px-3">
+            <div class="card-block px-3">
+              <a style="text-decoration: none;" routerLink='/profile-update'>
+                <div class="name" style="font-size: 50px; text-align: center;">Hi, {{appUser.name}}</div>
+              </a>
+              <div class="email" style="padding: 20px; margin: auto;">
+                <a style="text-decoration: none;" routerLink='/profile-update'>
+                    <i class="fa fa-envelope" style="font-size: 48px;"></i>
+                    <span style="font-size: 32px; margin-left: 20px;">{{appUser.email}}</span>
+                </a>
+              </div>              
+              <div class="address" style="padding: 20px; margin: auto;">
+                <a style="text-decoration: none;" routerLink='/profile-update'>
+                    <i class="fa fa-home" style="font-size: 56px;"></i>
+                    <span style="font-size: 32px; margin-left: 20px;">{{appUser.address}} </span>
+                </a>
+            </div>              
             <div class="update" style="text-align: center;">
                 <a class="btn btn-primary" style="margin: 15px; font-size: 20px; font-weight: 700;" routerLink='/profile-update'>Update</a>
             </div>
-
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 </body>
-
 </html>

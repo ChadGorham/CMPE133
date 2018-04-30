@@ -9,17 +9,17 @@
 <!-- Getting information for typescript -->
 <form #f="ngForm" (ngSubmit)="signup(f.value)">
   <div class="form-group">
-    <input ngModel #name="ngModel" name="name" id="name" type="text" class="form-control" placeholder="Name" required=" ">
+    <input ngModel #name="ngModel" name="name" id="name" type="text" class="form-control" placeholder="Name (require)" required=" ">
     <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Name is required</div>
   </div>
 
   <div class="form-group">
-    <input ngModel #email="ngModel" name="email" id="email" type="email" class="form-control" placeholder="Email" required=" ">
+    <input ngModel #email="ngModel" name="email" id="email" type="email" class="form-control" placeholder="Email (require)" required=" ">
     <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required</div>
   </div>
   
   <div class="form-group">
-    <input ngModel #password="ngModel" name="password" id="password" type="password" class="form-control" placeholder="Password" required=" ">
+    <input ngModel #password="ngModel" name="password" id="password" type="password" class="form-control" placeholder="Password (require)" required=" ">
     <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is required</div>
   </div>
 

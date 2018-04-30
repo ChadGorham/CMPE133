@@ -1,34 +1,76 @@
+/* profile image */
 .thumbnail
 {
     /* resize image without being out of ratio */
     width: 300px;
     height: 300px;
-    border: 3px solid lightgray;
-    padding: 5px;
     background-size: cover;
     display: block;
-    margin-top: 10px;
+    margin-top: 25px;
+    margin-left: 25px;
+    border-radius: 100%;
+    border: solid 5px transparent;
+    transition: 0.2s;
 }
 
-.name
+.col-md-4
 {
-    width: 300px;
-    text-align: center;
-    font-size: 48px;
-    margin-top: 20px;
-    display: inline
+    border-right: solid 3px lightgray;
 }
 
-.email:hover, .address:hover
+.col-md-8
 {
-    font-weight: bolder;
+    padding-top: 20px;
+    background: rgb(0, 170, 255);
 }
 
-/* .card 
+a
 {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 30px;
-} */
+    color: white;
+    transition: 0.2s;
+}
+
+a.btn
+{
+    background-color: white;
+    color: rgb(0, 170, 255);
+}
+
+a.btn:hover
+{
+    color:white;
+    background-color: #ffc107;
+}
+
+a:hover
+{
+    color:#ffc107;
+}
+
+/* Profile image and its hover effect */
+img
+{
+    border: solid 2px transparent;
+}
+
+img:hover
+{
+    border: solid 5px #ffc107;
+}
+
+.card 
+{
+    border: 3px solid lightgray;
+}
+
+/* Profile picture box */
+.profile-picture
+{
+    border-right: solid 3px lightgray;
+    padding: 50px;
+}
+
+
+
+
+

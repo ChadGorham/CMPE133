@@ -11,7 +11,7 @@
           <div class="form-group">
           <!-- for improving the accessibility, use both "coupon" when user click the label
               the input field will immediately get focus -->
-              <label for="coupon">Coupon Code:</label>
+              <label for="coupon">Coupon Code<span style="color:red">*</span></label>
               <input #coupon="ngModel" [(ngModel)]="targetCoupon.coupon" name="coupon" id="coupon" type="text" class="form-control" required>
               <div class="alert alert-danger" *ngIf="coupon.touched && coupon.invalid">
                   Coupon code is required
@@ -19,7 +19,7 @@
           </div>
  
           <div class="form-group">
-              <label for="discount">Discount (ex. entering 10 means 10% off) </label>
+              <label for="discount">Discount (ex. entering 10 means 10% off)<span style="color:red">*</span> </label>
               <!-- div.input-group>span.input-group-text //then press enter -->
               <div class="input-group mb-3">
                   <input #discount="ngModel" [(ngModel)]="targetCoupon.discount" name="discount" type="number" class="form-control" required>

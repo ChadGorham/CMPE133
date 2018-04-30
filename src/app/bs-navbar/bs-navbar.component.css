@@ -16,10 +16,6 @@
 color: white;
 }
 
-.scrolled {
-    background-color: white;
-    transition: 0.3s;
-}
 
 .nav-item {
     color: #ffffff;
@@ -28,6 +24,7 @@ color: white;
 
 .nav-link {
     font-size: 17px;
+    border-bottom: solid 2px transparent;
 }
 
 .nav-item:hover {
@@ -55,9 +52,6 @@ img:focus {
     border-radius: 50%;
 }
 
-.profile-picture:hover {
-    border: solid 3px grey;
-}
 
 .nav-link:hover, .nav-link:focus {
     border-bottom: solid 2px;

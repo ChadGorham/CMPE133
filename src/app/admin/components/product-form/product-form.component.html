@@ -15,7 +15,7 @@
             <div class="form-group">
             <!-- for improving the accessibility, use both "title" when user click the label
                 the input field field will immediately get focus -->
-                <label for="title">Title</label>
+                <label for="title">Title<span style="color:red">*</span></label>
                 <input #title="ngModel" [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control" required>
                 <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
                     Title is required
@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group">
-                <label for="price">Price</label>
+                <label for="price">Price<span style="color:red">*</span></label>
                 <!-- div.input-group>span.input-group-text //then press enter -->
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -38,7 +38,7 @@
             </div>
 
             <div class="form-group">
-                <label for="unit">Unit</label>
+                <label for="unit">Unit<span style="color:red">*</span></label>
                 <select #unit="ngModel" [(ngModel)]="product.unit" name="unit" id="unit"  class="form-control">
                     <option value="ea"></option>
                     <!-- the $key is bread, but not Bread, in database under categories -->
@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group">
-                <label for="condition">Condition</label>
+                <label for="condition">Condition<span style="color:red">*</span></label>
                 <select #condition="ngModel" [(ngModel)]="product.condition" name="condition" id="condition"  class="form-control" required>
                     <option value=""></option>
                     <option value="Excellent">Excellent</option>
@@ -66,7 +66,7 @@
             
             </div>
             <div class="form-group">
-                <label for="isonsale">is Onsale</label>
+                <label for="isonsale">is Onsale<span style="color:red">*</span></label>
                 <select #isonsale="ngModel" [(ngModel)]="product.isonsale" name="isonsale" id="isonsale"  class="form-control" required>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -77,7 +77,7 @@
             </div>
         
             <div *ngIf="isonsale.value === 'Yes'" class="form-group">
-                <label for="discount">Discount</label>
+                <label for="discount">Discount<span style="color:red">*</span></label>
                 <select #discount="ngModel" [(ngModel)]="product.discount" name="discount" id="discount"  class="form-control" required>
                     <option value="15">15%</option>
                     <option value="25">25%</option>
@@ -96,7 +96,7 @@
             </div>
         
             <div class="form-group">
-                <label for="imageUrl">Image Url</label>
+                <label for="imageUrl">Image Url<span style="color:red">*</span></label>
                 <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
                 <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
                     <div *ngIf="imageUrl.errors.required">Image URL is requried</div>
@@ -105,7 +105,7 @@
             </div>
         
             <div class="form-group">
-                <label for="category">Category</label>
+                <label for="category"><span style="color:red">*</span>Category</label>
                 <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
                     <option value=""></option>
                     <!-- the $key is bread, but not Bread, in database under categories -->

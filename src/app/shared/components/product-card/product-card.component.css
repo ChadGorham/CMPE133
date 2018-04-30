@@ -20,12 +20,12 @@
 }
 
 .add {
-    background: #FA8072;
+    background: #ffc107;;
     color: white;
 }
 
 .add:hover {
-    background: rgb(165, 71, 60);
+    background: #ffc1079b;
 }
 
 .card-footer {
@@ -56,16 +56,6 @@
     color: orange;
 }
 
-
-/* .sale-tag
-{
-    background: #FA8072;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-} */
-
 .badge {
     position: absolute;
     top: 8px;
@@ -73,6 +63,7 @@
     color: white;
     background-color: red;
     font-size: 24px;
+    font-family: "Karla", sans-serif;
     right: 10px;
 }
 
@@ -81,4 +72,11 @@
 
 a {
     color: black;
+}
+
+.regularPrice, .salePrice
+{
+    color: #3FB9F9;
+    font-size: 30px;
+    font-family: 'Stardos Stencil', cursive;
 }
