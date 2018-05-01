@@ -19,40 +19,5 @@ export class MakePaymentComponent{
 
   constructor() { }
 
-  // async ngOnInit() {
-  //   // Getting total amount of price in shipping cart
-  //   this.cart$ = await this.shoppingCartService.getCart();
-  //   this.cart$.subscribe(cart => this.amount = cart.totalPrice * 100);
-
-  //   this.userSubscription = this.authService.user$.subscribe(user => this.userId = user.uid);
-    
-  //   this.handler = StripeCheckout.configure({
-  //     key: environment.stripeKey,
-  //     image: 'https://image.flaticon.com/icons/svg/172/172119.svg',
-  //     locale: 'auto',
-  //     token: token => {
-  //       this.paymentSvc.processPayment(token, this.amount);
-  //     }
-  //   });
-    
-  // }
-
-  // ngOnDestroy()
-  // {
-  //   this.userSubscription.unsubscribe();
-  // }
-
-  // handlePayment() {
-  //   this.handler.open({
-  //     name: 'MiniSafeway',
-  //     excerpt: 'Deposit Funds to Account',
-  //     amount: this.amount
-  //   });
-  // }
-
-  // @HostListener('window:popstate')
-  //   onPopstate() {
-  //     this.handler.close();
-  //   }
 
 }

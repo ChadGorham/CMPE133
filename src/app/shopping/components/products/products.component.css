@@ -1,3 +1,8 @@
+.slider
+{
+    box-shadow: 5px 10px 20px #cccccc;
+}
+
 .sortBy,
 .viewBy {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
@@ -58,6 +63,7 @@ display: inline-block;
 margin-left: 20px; 
 width: 920px; 
 vertical-align: 5px;
+padding-top: 30px;
 }
 
 .toolbar

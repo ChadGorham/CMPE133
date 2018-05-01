@@ -1,3 +1,8 @@
 .carousel {
     box-shadow: 5px 10px 20px #cccccc;
 }
+
+img
+{
+    border-radius: 10px;
+}

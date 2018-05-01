@@ -20,12 +20,12 @@
 }
 
 .add {
-    background: #ffc107;;
+    background-color: #db3236;
     color: white;
 }
 
 .add:hover {
-    background: #ffc1079b;
+    background: #ac2124;
 }
 
 .card-footer {
@@ -76,7 +76,8 @@ a {
 
 .regularPrice, .salePrice
 {
-    color: #3FB9F9;
+    color: rgb(21, 151, 221);
     font-size: 30px;
-    font-family: 'Stardos Stencil', cursive;
+    font-family: 'Acme', sans-serif;
+    
 }

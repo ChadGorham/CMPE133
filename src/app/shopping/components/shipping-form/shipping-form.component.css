@@ -15,6 +15,15 @@
 
 #coupon {
     height: 40px;
+    transition: 0.2s;
+    border: solid transparent;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+#coupon:focus
+{
+    border: solid #db3236;
 }
 
 #apply {
@@ -23,14 +32,16 @@
     color: white;
     width: 100px;
     height: 40px;
-    background: #0ABAB5;
+    background: #db3236;
     font-family: 'Lato';
     font-size: 20px;
     padding: 2px;
+    transition: 0.2s;
+    border-radius: 5px;
 }
 
 #apply:hover {
-    background: rgb(14, 131, 127);
+    background: #b92b2e;
 }
 
 a:not([href]):not([tabindex]) {

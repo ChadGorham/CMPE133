@@ -162,7 +162,7 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   // to enter the payment information
    handlePayment() {
     this.handler.open({
-      name: 'E-Quality',
+      name: 'eQuality',
       excerpt: 'Deposit Funds to Account',
       amount: this.amount
     });
